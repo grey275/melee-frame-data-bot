@@ -1,0 +1,19 @@
+This bot displays melee frame data. just type $fd followed by
+a character and a move to see how it works!
+It should be noted that not all characters are currently supported.
+See the first command for a list. Commands don't need to be entered exactly.
+
+__**Commands:**__
+
+**listCommands:**
+Lists all available special commands.
+
+**listCharacters:**
+Lists all characters with available data.
+
+**listMoves**:
+Lists moves of a specified character.
+__example:__ *$fd listMoves Falco*
+
+**invite:**
+Posts the bot's invite link so you can add it to your server.

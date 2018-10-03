@@ -200,7 +200,7 @@ class Command:
                                                  user_command=user_command,
                                                  matched_command=match,
                                                  match_rate=match_rate)
-            return match_rate, error, error_message 
+            return match_rate, error, error_message
 
         return match_rate, match
 

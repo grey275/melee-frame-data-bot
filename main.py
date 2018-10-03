@@ -1,9 +1,7 @@
 import asyncio
 import json
 import os
-import re
-
-import discord
+import requests
 
 from fuzzywuzzy import process
 from googleapiclient.discovery import build
@@ -44,7 +42,7 @@ class Sheets:
         """
         service =  build('sheets', 'v4', developerKey=self.APIKey)
         request = service.spreadsheets().values().batchGet(spreadsheetId=self.SSID,
-                                                            ranges=self.sheet_names)
+                                                           ranges=self.sheet_names)
         # print("got data")
         return request.execute().get("valueRanges")
 
@@ -61,7 +59,7 @@ class Sheets:
         character_data = valueRanges[:-3]
         for i, d in enumerate(character_data):
             sheet_dict[characters[i]] = self.addMoves(d["values"],
-                                                    characters[i])
+                                                      characters[i])
         return sheet_dict
 
 
@@ -77,7 +75,7 @@ class Sheets:
             move_name = char_data[y][1]
             data = char_data[y][2:10]
             moves[move_name] = self.embed(data, labels,
-                                        char_name, move_name)
+                                          char_name, move_name)
         return moves
 
     def embed(self, data, labels, char_name, move_name):
@@ -219,19 +217,19 @@ class Command:
                     return self.special_commands[matched_command][0]()
                 raise Exception("No valid args for {}!".format(matched_command))
             return self.getErrorMessage(error="Requires-Arg",
-                                   matched_command=matched_command)
+                                        matched_command=matched_command)
         if not valid_args:
             return self.getErrorMessage(error="No-Arg-Taken",
-                                   matched_command=matched_command)
+                                        matched_command=matched_command)
 
         num_user_args = len(user_args)
         # Right now all commands only take 1 argument. If that's ever not
         # the case this needs to be updated.
         if num_user_args > 1:
             return self.getErrorMessage(error="Wrong-Number-Of-Args",
-                                    matched_command=matched_command,
-                                    expected_num_args=1,
-                                    num_user_args=num_user_args,)
+                                        matched_command=matched_command,
+                                        expected_num_args=1,
+                                        num_user_args=num_user_args,)
         user_arg = user_args[0]
         #print("user arg:{}".format(user_arg))
         matched_arg, error_message = self.matchArg(matched_command,

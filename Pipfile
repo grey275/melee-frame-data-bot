@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
 fuzzywuzzy = "*"
-"discord.py" = {file = "https://github.com/Rapptz/discord.py/archive/rewrite.zip", extras = ["voice"]}
+"discord.py" = {file = "https://github.com/Rapptz/discord.py/archive/rewrite.zip", extras = ["voice"], editabe = true}
 google-api-python-client = "*"
 python-levenshtein = "*"
+websockets = "*"
+aiohttp = "*"
 
 [dev-packages]
 

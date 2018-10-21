@@ -83,7 +83,7 @@ class Sheets:
     def embed(self, data, labels, char_name, move_name):
         """
         Transforms move data into a form that works with discord.embed,
-        and calls makeEmbedOBJ on the result. 
+        and calls makeEmbedOBJ on the result.
         """
         move_dict = dict()
         move_dict["title"] = "{}'s {}".format(char_name, move_name)
@@ -153,9 +153,14 @@ class Command:
 
         self.min_match_rate = min_match_rate
 
+    async def execute(self, message):
+        response = self.parse(message.content[3:])
+        if type(response) == discord.embeds.Embed:
+            await message.channel.send(embed=response)
+        else:
+            await message.channel.send(response)
 
-
-    def execute(self, msg_string):
+    def parse(self, msg_string):
         """
         parses and executes command
         """
@@ -309,21 +314,27 @@ def main():
     @client.event
     async def on_message(message):
         """
-        Redefinition of the on_message event object
-        which carries out user commands.
-        the argument 'message' in the function definition is the newly
-        received message.
+        Redefinition of the on_message event object.
+        Checks to see if command prefix is present.
         """
         nonlocal command
         if message.author == client.user:
             return
-        if message.content.startswith("$fd"):
-            response = command.execute(message.content[3:])
-            #print("response!")
-            if type(response) == discord.embeds.Embed:
-                await message.channel.send(embed=response)
-            else:
-                await message.channel.send(response)
+        if message.content.startswith("$d"):
+            await command.execute(message)
+
+
+    @client.event
+    async def on_message_edit(before, after):
+        """
+        Redefinition of library event object.
+        Checks to see if the command prefix is present.
+        """
+        nonlocal command
+        if after.author == client.user:
+            return
+        if after.content.startswith("$d"):
+            await command.execute(after)
 
     client.run(conf.discord_token)
 

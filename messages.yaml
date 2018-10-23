@@ -1,0 +1,44 @@
+help: |+
+
+  This bot displays melee frame data. Just type $fd followed by
+  a character and a \n move to see how it works!
+  It should be noted that not all characters are currently supported.
+  See the first command for a list. Commands don't need to be entered exactly.
+
+  __**Commands:**__
+
+    **help:**
+    This command
+
+    **listCommands:**
+    Lists all available special commands.
+
+    **listCharacters:**
+    Lists all characters with available data.
+
+    **listMoves**:
+    Lists moves of a specified character.
+    __example:__ *$fd listMoves Falco*
+
+    **invite:**
+    Posts the bot's invite link so you can add it to your server.
+
+No-Such-Command: >-
+  No approximate match found for Command/Character **{user_command}**.
+  Closest found is **{matched_command}**. (match rate: **{match_rate}**).
+  Type **$fd help ** for more information about this bot.
+
+No-Such-Argument: >-
+  No approximate match found for argument **{user_arg}** in command {matched_command}.
+  The closest match was **{matched_arg}.**
+
+Requires-Arg: >-
+  The command **{matched_command} requires an argument.,
+
+No-Arg-Taken: >-
+  The command **{matched_command} doesn't take any arguments.
+
+Wrong-Number-Of-Args: >-
+  The command **{matched_command}** takes **{expected_num_args}** argument(s), not **{num_user_args}**. If you're trying to get a character's info, Make sure to replace any spaces that you have in your move or character name with underscores('_'), or just remove them entirely!
+
+No-Command: Command is empty!

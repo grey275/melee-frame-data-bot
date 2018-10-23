@@ -4,17 +4,17 @@ import re
 import os
 
 import discord
+import yaml
 
 from fuzzywuzzy import process
 from googleapiclient.discovery import build
 from httplib2 import Http
 
-# https://drive.google.com/open?id=11i-YwUajgc6aWD8wSetYrb_bAM4RmL4FZi8XdBrMHo8
 
 
 class Sheets:
     """
-    Class for getting sheet data, parsing it to allow for faster and simpler data retrieval,
+    Class for getting sheet data, parsing, 
     and storing as a json in a chosen location.
     """
     def __init__(self, spreadsheet_ID, google_API_key):
@@ -131,13 +131,31 @@ class Config:
         start = re.search("id\=", url).end()
         return url[start:]
 
+class CharacterInfoCommands(list):
+
+
+    async def execute(self, message):
+        response = self.parse(message.content[3:])
+        if type(response) == discord.embeds.Embed:
+            await message.channel.send(embed=response)
+        else:
+            await message.cha
+
+class SpecialCommands:
+    def __init__(self, messages_location):
+        self.messages = self.fetchmessages(messages_location)
+
+    def fetchmessages(self, messages_location):
+        with open(messages_location, 'r') as f:
+            return json.loads(f.read())
+
+    def help():
+        return
+
 
 class Command:
 
-    def __init__(self, sheets, min_match_rate=80):
-        """
-        none of these variables will change
-        """
+    def __init__(self, sheets, message_file="messages.yaml", min_match_rate=80):
         self.sheet_names = sheets.sheet_names
         self.refresh_cache = sheets.get
         self.dict_data = sheets.dict_data
@@ -148,8 +166,7 @@ class Command:
                                  "listCharacters": [self.listCharacters, {}],
                                  "listMoves": [self.listMoves, set(self.sheet_names)]}
 
-        self.error_file = "errors.json"
-        self.error_messages = self.fetchErrorMessages()
+        self.messages = self.fetchMessages(message_file)
 
         self.min_match_rate = min_match_rate
 
@@ -165,7 +182,7 @@ class Command:
         parses and executes command
         """
         if not msg_string:
-            return self.getErrorMessage("No-Command")
+            return self.getMessage("No-Command")
         user_command, *user_args = [w.replace("_", " ") for w in msg_string.split()]
         #finds matches in case command is a special or move info command
         character_match_info = self.matchCommand(user_command,
@@ -201,7 +218,7 @@ class Command:
         if match_rate < self.min_match_rate:
             # print("not found!")
             error = "No-Such-Command"
-            error_message = self.getErrorMessage(error=error,
+            error_message = self.getMessage(error=error,
                                                  user_command=user_command,
                                                  matched_command=match,
                                                  match_rate=match_rate)
@@ -223,17 +240,17 @@ class Command:
                 if is_special:
                     return self.special_commands[matched_command][0]()
                 raise Exception("No valid args for {}!".format(matched_command))
-            return self.getErrorMessage(error="Requires-Arg",
+            return self.getMessage(error="Requires-Arg",
                                         matched_command=matched_command)
         if not valid_args:
-            return self.getErrorMessage(error="No-Arg-Taken",
+            return self.getMessage(error="No-Arg-Taken",
                                         matched_command=matched_command)
 
         num_user_args = len(user_args)
         # Right now all commands only take 1 argument. If that's ever not
         # the case this needs to be updated.
         if num_user_args > 1:
-            return self.getErrorMessage(error="Wrong-Number-Of-Args",
+            return self.getMessage(error="Wrong-Number-Of-Args",
                                         matched_command=matched_command,
                                         expected_num_args=1,
                                         num_user_args=num_user_args,)
@@ -254,7 +271,7 @@ class Command:
         match, match_rate = process.extractOne(user_arg, valid_args)
         if match_rate < self.min_match_rate:
             error = "No-Such-Argument"
-            error_message = self.getErrorMessage(error, user_arg=user_arg,
+            error_message = self.getMessage(error, user_arg=user_arg,
                                                  matched_command=matched_command,
                                                  matched_arg=match)
             return False, error_message
@@ -262,11 +279,11 @@ class Command:
         #print("arg match: {}".format(match))
         return match, False
 
-    def fetchErrorMessages(self):
-        with open(self.error_file) as f:
-            return json.loads(f.read())
+    def fetchMessages(self, message_file):
+        with open(message_file) as f:
+            return yaml.load(f.read())
 
-    def getErrorMessage(self, error, **info):
+    def getMessage(self, error, **info):
         message = self.error_messages[error]
         return message.format(**info)
 
@@ -274,9 +291,9 @@ class Command:
         return self.dict_data["Falco"].keys()
 
     def getHelpMessage(self):
-        with open("help.md", "r") as f:
-            message = f.read()
-        return message
+        with open("messages.yaml", "r") as f:
+            messages = yaml.load(f.read())
+        return messages["help"]
 
     def listCharacters(self):
         return self.formatOutputList(self.sheet_names[:-3])

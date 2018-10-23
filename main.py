@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import asyncio
 import json
 import re
@@ -293,7 +294,8 @@ def main():
                     google_API_key=conf.api_key)
 
     command = Command(sheets)
-    client = discord.Client()
+    game = discord.Game(name="'$fd help' for commands")
+    client = discord.Client(activity=game)
 
     @client.event
     async def on_connect():

@@ -128,6 +128,8 @@ class Config:
         self.sheet_url = config_dict["sheet_url"]
         self.sheet_id = self.getSpreadsheetID(self.sheet_url)
 
+        self.command_prefix = (config_dict["command_prefix"])
+
     def getSpreadsheetID(self, url):
         start = re.search("id\=", url).end()
         return url[start:]
@@ -294,7 +296,7 @@ def main():
                     google_API_key=conf.api_key)
 
     command = Command(sheets)
-    game = discord.Game(name="'$fd help' for commands")
+    game = discord.Game(name="'{} help' for commands".format(conf.command_prefix))
     client = discord.Client(activity=game)
 
     @client.event
@@ -316,10 +318,10 @@ def main():
         the argument 'message' in the function definition is the newly
         received message.
         """
-        nonlocal command
+        nonlocal command, conf
         if message.author == client.user:
             return
-        if message.content.startswith("$fd"):
+        if message.content.startswith(conf.command_prefix):
             response = command.execute(message.content[3:])
             #print("response!")
             if type(response) == discord.embeds.Embed:

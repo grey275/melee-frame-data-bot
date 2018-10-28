@@ -115,21 +115,6 @@ class Sheets:
             embed.add_field(name=f["name"], value=f["value"])
         return embed
 
-class Config:
-
-    def __init__(self, config_location="config.json"):
-        with open(config_location) as f:
-            config_dict = json.loads(f.read())
-
-        self.api_key = config_dict["google_api_key"]
-        self.discord_token = config_dict["discord_token"]
-
-        self.sheet_url = config_dict["sheet_url"]
-        self.sheet_id = self.getSpreadsheetID(self.sheet_url)
-
-    def getSpreadsheetID(self, url):
-        start = re.search("id\=", url).end()
-        return url[start:]
 
 class CharacterInfoCommands(list):
 
@@ -272,8 +257,8 @@ class Command:
         if match_rate < self.min_match_rate:
             error = "No-Such-Argument"
             error_message = self.getMessage(error, user_arg=user_arg,
-                                                 matched_command=matched_command,
-                                                 matched_arg=match)
+                                            matched_command=matched_command,
+                                            matched_arg=match)
             return False, error_message
 
         #print("arg match: {}".format(match))
@@ -284,7 +269,7 @@ class Command:
             return yaml.load(f.read())
 
     def getMessage(self, error, **info):
-        message = self.error_messages[error]
+        message = self.messages[error]
         return message.format(**info)
 
     def test(self):
@@ -312,7 +297,7 @@ def main():
     conf = Config()
 
     sheets = Sheets(spreadsheet_ID=conf.sheet_id,
-                    google_API_key=conf.api_key)
+                    google_API_key=conf.google_api_key)
 
     command = Command(sheets)
     client = discord.Client()
@@ -323,8 +308,6 @@ def main():
         redefinition of the on_connect() event object
         method that reloads the cache
         """
-        nonlocal client
-        nonlocal sheets
         print("We're Online! user = {0.user}".format(client))
 
 
@@ -334,10 +317,9 @@ def main():
         Redefinition of the on_message event object.
         Checks to see if command prefix is present.
         """
-        nonlocal command
         if message.author == client.user:
             return
-        if message.content.startswith("$d"):
+        if message.content.startswith(conf.command_prefix):
             await command.execute(message)
 
 
@@ -347,10 +329,10 @@ def main():
         Redefinition of library event object.
         Checks to see if the command prefix is present.
         """
-        nonlocal command
+        nonlocal command, conf
         if after.author == client.user:
             return
-        if after.content.startswith("$d"):
+        if after.content.startswith(conf.command_prefix):
             await command.execute(after)
 
     client.run(conf.discord_token)

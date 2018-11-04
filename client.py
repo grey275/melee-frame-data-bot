@@ -44,7 +44,6 @@ class MyDiscordClient(discord.Client):
         if not self._isCommand(message):
             return
         output = self._query(message.content)
-        print("output: {}".format(output))
         for out in output:
             await message.channel.send(**out)
 
@@ -64,11 +63,9 @@ class MyDiscordClient(discord.Client):
     def _query(self, content):
         all_args = self._parse(content)
         if not all_args:
-            print("not command!")
             return messages.NO_COMMAND
 
         guess, *args = all_args
-        print("guess: {}, args: {}".format(guess, args))
         return self.data.match(guess, args)
 
     def _parse(self, content):

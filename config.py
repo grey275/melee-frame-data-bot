@@ -1,25 +1,33 @@
-import yaml
 import re
 
+from userCredentials import Creds
 
-class Config:
+
+class Config(Creds):
     """
-    Retrieves and stores info from the user's configuration file.
-    Also computes the spreadsheet Id from the given sheet url.
+    General Configuration.
+    Inherits credentials from userCredentials.py
     """
-    def __init__(self, config_file="config.yaml"):
 
-        with open(config_file) as f:
-            config_dict = yaml.load(f.read())
+    command_prefix = "$d"
 
-        self.__dict__.update(**config_dict)
-        self.sheet_id = self.getSpreadsheetID(self.sheet_url)
+    sheet_url = "https://docs.google.com/spreadsheets/d/12dwtMFdi95l03npBFuWI0fK62V0QZ6xET3qJ4oVdGc0&edit#gid=1165995726"
 
-        self.config_file = config_file
+    sheet_id = re.search("id\=", sheet_url).end()
 
-    def getSpreadsheetID(self, url):
-        start = re.search("id\=", url).end()
-        return url[start:]
+    message_file = "messages.yaml"
 
+    min_match_percent = 80
 
-conf = Config()
+    character_names = {
+        "Fox",
+        "Falco",
+        "Marth",
+        "Sheik",
+        "Jigglypuff",
+        "Peach",
+        "Ice Climbers",
+        "Captain Falcon",
+        "Pikachu",
+        "Samus",
+    }

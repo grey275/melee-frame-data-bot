@@ -10,8 +10,12 @@ google-api-python-client = "*"
 python-levenshtein = "*"
 websockets = "*"
 aiohttp = "*"
+gspread = "*"
+authlib = "*"
+pyyaml = "*"
 
 [dev-packages]
+ipython = "*"
 
 [requires]
 python_version = "3.7"

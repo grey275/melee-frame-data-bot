@@ -1,6 +1,6 @@
 import re
 
-from userCredentials import Creds
+from credentials import Creds
 
 
 class Config(Creds):
@@ -23,11 +23,15 @@ class Config(Creds):
         "Fox",
         "Falco",
         "Marth",
-        "Sheik",
-        "Jigglypuff",
-        "Peach",
-        "Ice Climbers",
-        "Captain Falcon",
-        "Pikachu",
-        "Samus",
-    }
+        }
+
+        #"Sheik",
+        #"Jigglypuff",
+        #"Peach",
+        #"Ice Climbers",
+        #"Captain Falcon",
+        #"Pikachu",
+        # "Samus",
+    discord_activity_msg = "{} help for Commands".format(command_prefix)
+    contributor_list = ["sp99", "cfx"]
+    invite_link = "https://discordapp.com/oauth2/authorize?client_id=492378733399900169&scope=bot&permissions=67584"

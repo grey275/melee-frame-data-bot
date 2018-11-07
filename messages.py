@@ -30,7 +30,7 @@ def build(key, **info):
         output.append({"embed": _makeEmbedOBJ(**raw_msg)})
     return output
 
-# Prebuilts
 
-HELP = build("Help")
+HELP = build("Help", contributor_list=Config.contributor_list)
 NO_COMMAND = build("NoCommand")
+INFO = build("Info")

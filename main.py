@@ -1,3 +1,4 @@
+#!/usr/bin/pipenv run
 from client import MyDiscordClient
 from config import Config
 

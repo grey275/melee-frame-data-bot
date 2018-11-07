@@ -1,5 +1,3 @@
-import re
-
 import gspread
 
 from config import Config
@@ -24,10 +22,11 @@ class AllStructuredData(Response):
     def _build(self, session):
         get_worksheet = self._fetchAllWorksheets(session).worksheet
         children = dict()
-        children.update({"General": General(get_worksheet("Universal Data"))},
+        children.update(self._buildCharacters(get_worksheet),
                         **{"Help": Help()},
-                        **self._buildCharacters(get_worksheet),
-                        **{"Characters": Charlist()})
+                        **{"Characters": Charlist()},
+                        **{"Invite": Invite()},
+                        **{"Info": Info()})
         return children
 
     def _buildCharacters(self, get_worksheet):
@@ -45,7 +44,21 @@ class AllStructuredData(Response):
 class Help(Response):
     def __init__(self):
         super().__init__()
-        self.output.append(*messages.HELP)
+        self.output = messages.HELP
+
+
+class Invite(Response):
+    link = Config.invite_link
+
+    def __init__(self):
+        super().__init__()
+        self.output = [{"content": self.link}]
+
+
+class Info(Response):
+    def __init__(self):
+        super().__init__()
+        self.output = messages.INFO
 
 
 class Charlist(Response):
@@ -84,8 +97,6 @@ class Worksheet(Response):
         for i in range(start, len(row)):
             if not row[i]:
                 break
-        else:
-            i += 1
         return i
 
     def _getTableSection(self, start_row, col_range):
@@ -126,7 +137,6 @@ class General(Worksheet):
     def _addMoves(self):
         labels, *moves = self._getRect(2, 0)
         fields = list()
-        labels.pop(0)
         *most_labels, last_label = labels
         for name, *data in moves:
             *most_data, last_data = data
@@ -154,7 +164,7 @@ class Character(Worksheet):
 
     def __init__(self, worksheet):
         super().__init__(worksheet)
-        self._worksheet = worksheet
+
         self._name = self._findName()
         self._children = self._buildChildren()
         self.output = self._buildOutput()
@@ -187,11 +197,12 @@ class Character(Worksheet):
         stat_table = self._buildStats()
         labeled_move_names = self._labelMoveNames()
         output = list()
-        embeds = [self._embedStats(stat_table),
-                  self._embedMoveList(labeled_move_names)]
-        # embeds = [self._embedMoveList(labeled_move_names)]
+        embeds = (self._embedStats(stat_table),
+                  self._embedMoveList(labeled_move_names))
+
         for embed in embeds:
             output.append({"embed": embed})
+
         return output
 
     def _embedStats(self, stat_table):
@@ -199,7 +210,6 @@ class Character(Worksheet):
         fields = list()
         for n, v in stat_table:
             fields.append({"name": n, "value": v})
-        # return {"fields: {}".format(fields)}
         return self._makeEmbedOBJ(fields=fields, title=title)
 
     def _embedMoveList(self, labeled_move_names):
@@ -211,8 +221,9 @@ class Character(Worksheet):
         return self._makeEmbedOBJ(title=title, fields=fields)
 
     def _buildStats(self):
-        start_cell = self._worksheet.find("Jumpsquat Frames")
-        stat_table = self._getRect(start_cell.row-1, start_cell.col-1)
+        start_row = 2
+        col_range = 12, 14
+        stat_table = self._getTableSection(start_row, col_range)
         return stat_table
 
     def _labelMoveNames(self):

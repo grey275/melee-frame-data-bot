@@ -6,7 +6,7 @@ Help:
     As in the above example, don't use spaces for multi-word character and move names.
     Moves are fuzzy-searched so you don't have to type them out exactly!
 
-    **More commands:**
+    **More Commands:**
     Just as above, type $fd followed by one of these commands.
   fields:
   - name: Characters
@@ -18,16 +18,45 @@ Help:
   - name: <character> <move>
     value: Displays the framedata of the specified move.
 
-  - name: General
-    value: Displays non-character-specific framedata.
+  - name: Invite
+    value: Displays the invite link so you can add this bot to your server!
+  - name: Info
+    value: Info about this bot's dataset and the project more generally.
 
-  - name: Help
-    value: This command!
+  footer: |
+    A special thanks to the following community members who contributed to this project:
+      {contributor_list}
+
+Invite: {link}
+
+Info: 
+  
+  fields:
+  - name: Format Notes
+    value: |
+      Staling is not taken into account at any point in this dataset, so unfortunately you will have to factor that in yourself.
+      - For the startup category, the values represent the first *active* frame in the move's animation, not the number of startup frames before the hitbox comes out.
+      - For the active frame category of multihit moves, I'm honestly not sure of what the format is supposed to mean, and at this point I'm afraid to ask. I'll hopefully be redoing those so they make a little more sense at some point.
+
+  - name: Notes on the Current State of the Dataset
+    value: |
+      The dataset being used is a modification of a previously hand-compiled spreadsheet by a currently unknown person, at least to me, so though I haven't come across any serious unexplained errors yet, and I still appreciate this person's work, there are likely some errors. See below for the original spreadsheet.
+      If you encounter any errors please notify me and I'll see if I can fix them. It is also of course incomplete, and I don't have any plans of expanding it by hand, but in the future I'll be looking for a way to compile some more reliable and complete data in a more automated way. 
+      *As it stands though, I wouldn't recommend relying on this bot too heavily for information if you're doing any serious labbing.* It's meant to be used mainly as a quick reference for simpler questions more typically asked. More reliable sources of information include Stratocaster's Hitbox Project, and IKneedata's calculator.
+
+  - name: Contribution
+    value: |
+      If you'd like to contribute to this project in some way, please let me(Grey#6475) know! Of course any help is appreciated. The gitlab repo is not currently publicly visible, but if anyone is interested in contributing code I'll make it public. I should mention that I'm not a very experienced programmer. This is a project I put together to learn  while making something that is hopefully useful. With that in mind, any comments, criticism or tips are very welcome!
+
+  - name: Original Spreadsheet
+    value: |
+      https://docs.google.com/spreadsheets/d/12dwtMFdi95l03npBFuWI0fK62V0QZ6xET3qJ4oVdGc0/edit#gid=1165995726
+
 
 
 MatchNotFound: |
   No approximate match found for **{guess}** in **{category}**.
-  Closest found is **{closest_match}**(match rate: **{match_rate}**)
+  Closest found is **{closest_match}**(match rate: **{match_rate}**).
   Enter **$fd help** for more information about this bot.
 
 NoSuchArgument: >-

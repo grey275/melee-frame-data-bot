@@ -1,20 +1,15 @@
 import json
+from config import Config
 
 from authlib.client import AssertionSession
-from gspread import Client
-
-from config import conf
 
 
-
-def createAssertionSession(conf_file=conf.service_account_file, subject=None):
+def createSession(subject=None):
     scopes = [
         'https://spreadsheets.google.com/feeds',
         'https://www.googleapis.com/auth/drive',
     ]
-
-    with open(conf_file, 'r') as f:
-        conf = json.loads(f.read())
+    conf = Config.service_account_creds
 
     token_url = conf['token_uri']
     issuer = conf['client_email']
@@ -37,9 +32,3 @@ def createAssertionSession(conf_file=conf.service_account_file, subject=None):
         key=key,
         header=header,
     )
-# session = createAssertionSession()
-
-# gc = Client(None, session)
-
-# sheets = gc.open_by_key(conf.sheet_id)
-

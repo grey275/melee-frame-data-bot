@@ -2,10 +2,11 @@ import gspread
 
 from config import Config
 from response import Response
+from searchableTree import SearchableTree
 import messages
 
 
-class AllStructuredData(Response):
+class AllStructuredData(SearchableTree):
     """
     Stores all responses to user data in a tree structure,
     and a way to trigger those responses though a recursive
@@ -13,6 +14,7 @@ class AllStructuredData(Response):
     """
     sheet_url = Config.sheet_url
     character_names = Config.character_names
+    prebuilt_msgs = messages.PreBuiltMsgs
 
     def __init__(self, session):
         super().__init__()
@@ -21,12 +23,12 @@ class AllStructuredData(Response):
 
     def _build(self, session):
         get_worksheet = self._fetchAllWorksheets(session).worksheet
-        children = dict()
-        children.update(self._buildCharacters(get_worksheet),
-                        **{"Help": Help()},
-                        **{"Characters": Charlist()},
-                        **{"Invite": Invite()},
-                        **{"Info": Info()})
+        children = {"Help": self.prebuilt_msgs.help_msg,
+                    "Characters": SimpleOutputList(self.character_names),
+                    "Invite": self.prebuilt_msgs.invite_msg,
+                    "Info": self.prebuilt_msgs.invite_msg}
+
+        children.update(self._buildCharacters(get_worksheet))
         return children
 
     def _buildCharacters(self, get_worksheet):
@@ -41,38 +43,17 @@ class AllStructuredData(Response):
         return gc.open_by_url(self.sheet_url)
 
 
-class Help(Response):
-    def __init__(self):
+class SimpleOutputList(Response):
+
+    def __init__(self, lst):
         super().__init__()
-        self.output = messages.HELP
+        msg = self._formatOutputList(lst)
+        self._output = [{"content": msg}]
 
 
-class Invite(Response):
-    link = Config.invite_link
-
-    def __init__(self):
-        super().__init__()
-        self.output = [{"content": self.link}]
-
-
-class Info(Response):
-    def __init__(self):
-        super().__init__()
-        self.output = messages.INFO
-
-
-class Charlist(Response):
-    chars = Config.character_names
-
-    def __init__(self):
-        super().__init__()
-        msg = self._formatOutputList(self.chars)
-        self.output.append({"content": msg})
-
-
-class Worksheet(Response):
+class Worksheet(SearchableTree):
     """
-    Base class for the data extracted from the sheets.
+    Base class for the data extracted from a sheet.
     """
 
     def __init__(self, worksheet):
@@ -82,6 +63,10 @@ class Worksheet(Response):
         # self.worksheet
 
     def _getRect(self, start_row, start_col, end_col=False):
+        """
+        Returns the largest rectangle with no completely
+        empty cells specified by the arguments.
+        """
         rect = list()
         if end_col is False:
             end_col = self._getRowSectLength(self._all_values[start_row],
@@ -167,19 +152,13 @@ class Character(Worksheet):
 
         self._worksheet = worksheet
         self._name = self._findName()
-        self._children = self._buildChildren()
-        self.output = self._buildOutput()
+        self._children = self._buildMoves()
+        self._output = self._buildOutput()
         del self._all_values
 
     def _findName(self):
         name_row, name_col = self._name_loc
-        return self._all_values[name_row][name_col]
 
-    def _buildChildren(self):
-        children = dict()
-        moves = self._buildMoves()
-        children.update(moves)
-        return children
 
     def _buildMoves(self):
         start_row = 2
@@ -210,7 +189,6 @@ class Character(Worksheet):
         title = "{}'s General Stats".format(self._name)
         fields = list()
         for n, v in stat_table:
-            breakpoint()
             fields.append({"name": n, "value": v})
         return self._makeEmbedOBJ(fields=fields, title=title)
 
@@ -228,7 +206,6 @@ class Character(Worksheet):
         end_col = start_col+2
         col_range = start_col, end_col
         stat_table = self._getTableSection(start_row, col_range)
-        breakpoint()
         return stat_table
 
     def _labelMoveNames(self):
@@ -251,16 +228,18 @@ class Move(Response):
     def __init__(self, character, name, labels, data):
         super().__init__()
         self._name = name
-        if labels[-1] == "Gif":
-            data, url = data[:-1], data[-1]
-            is_giffed = url is not "-" or not url
+        self._output = self._makeMove(character, labels, data)
+
+    def _makeMove(self, character, labels, data):
+        output = list()
+        url = data[-1]
+        if labels[-1] == "Gif" and url is not "-" and url:
+            data = data[:-1]
         else:
-            is_giffed = False
-        self.output.append({"embed": self._makeEmbed(character, labels, data)})
-        if is_giffed:
-            self.output.append({"content": url})
-        else:
-            self.output.append({"content": "No gif!"})
+            url = "No gif!"
+        output.append({"embed": self._makeEmbed(character, labels, data)})
+        output.append({"content": url})
+        return output
 
     def _makeEmbed(self, character, labels, data):
         title = "{}'s {}".format(character, self._name)

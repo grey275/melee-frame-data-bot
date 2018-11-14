@@ -45,8 +45,7 @@ class MyDiscordClient(discord.Client):
         if not self._isCommand(message):
             return
         output = self._query(message.content)
-        for out in output:
-            await message.channel.send(**out)
+        await self._send(message.channel, output)
 
     async def on_message_edit(self, before, after):
         """
@@ -58,13 +57,12 @@ class MyDiscordClient(discord.Client):
         if not all(checks):
             return
         output = self._query(after.content)
-        for out in output:
-            await after.channel.send(**out)
+        await self._send(after.channel, output)
 
     def _query(self, content):
         all_args = self._parse(content)
         if not all_args:
-            return messages.NO_COMMAND
+            return messages.PreBuiltMsgs.no_command_msg
 
         guess, *args = all_args
         return self.data.match(guess, args)
@@ -76,3 +74,11 @@ class MyDiscordClient(discord.Client):
         checks = (message.content.startswith(self.command_prefix),
                   message.author != self.user)
         return all(checks)
+
+    async def _send(self, channel, output):
+        msgs = output.respond()
+        for msg in msgs:
+            if msg:
+                await channel.send(**msg)
+            else:
+                print("Silent commmand!")

@@ -1,5 +1,4 @@
-import json
-from config import Config
+import config
 
 from authlib.client import AssertionSession
 
@@ -9,12 +8,12 @@ def createSession(subject=None):
         'https://spreadsheets.google.com/feeds',
         'https://www.googleapis.com/auth/drive',
     ]
-    conf = Config.service_account_creds
+    creds = config.ServiceAccount.creds
 
-    token_url = conf['token_uri']
-    issuer = conf['client_email']
-    key = conf['private_key']
-    key_id = conf.get('private_key_id')
+    token_url = creds['token_uri']
+    issuer = creds['client_email']
+    key = creds['private_key']
+    key_id = creds.get('private_key_id')
 
     header = {'alg': 'RS256'}
     if key_id:

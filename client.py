@@ -1,41 +1,53 @@
+import traceback
+import sys
+
 import discord
 
-import serviceAccount
-import sheets
-import messages
+import config
 
-from config import Config
+import logs
 
+logger = logs.my_logger.getChild(__name__)
 
-class MyDiscordClient(discord.Client):
+class Client(discord.Client):
     """
-    Client which handles discord events
+    Client which finds and parses user commands
     """
-    command_prefix = Config.command_prefix
-    activity_msg = Config.discord_activity_msg
+    conf = config.Client
 
-    def __init__(self):
+    def __init__(self, data):
         """
         All main objects are instantiated here to
         be referenced during events.
         """
-        game_msg = discord.Game(name=self.activity_msg)
+        self.data = data
+        game_msg = discord.Game(name=self.conf.activity_msg)
         super().__init__(activity=game_msg)
-        session = serviceAccount.createSession()
-        self.data = sheets.AllStructuredData(session)
+
+    def run(self):
+        super().run(self.conf.token)
 
     async def on_ready(self):
-        print('Logged in as')
-        print(self.user.id)
-        print(self.user.name)
-        print('------')
+        logger.info(f"Logged in as {self.user.name}\n"
+                    f"id: {self.user.id}\n"
+                    f"------")
 
     async def on_connect(self):
         """
         redefinition of the on_connect() event object
         method that reloads the cache
         """
-        print("We're Online!".format())
+        logger.info("Connected to Discord")
+
+        guild_msg = f"Guilds: {self.guilds}"
+        guild_num_msg = "Number of Guilds: {}".format(len(self.guilds))
+
+        logger.debug("We're Online!")
+        logger.info(f"{guild_msg}\n{guild_num_msg}")
+
+    async def on_guild_join(self, guild):
+        num_guilds = len(self.guilds)
+        logger.info(f"Joined guild {num_guilds}.\n ")
 
     async def on_message(self, message):
         """
@@ -44,8 +56,8 @@ class MyDiscordClient(discord.Client):
         """
         if not self._isCommand(message):
             return
-        output = self._query(message.content)
-        await self._send(message.channel, output)
+        logger.debug(f"Command Recieved: {message}")
+        await self._handle(message)
 
     async def on_message_edit(self, before, after):
         """
@@ -56,29 +68,42 @@ class MyDiscordClient(discord.Client):
                   before != after)
         if not all(checks):
             return
-        output = self._query(after.content)
+        logger.debug("Command Recieved: {}")
+        output = self._query(after)
         await self._send(after.channel, output)
 
-    def _query(self, content):
-        all_args = self._parse(content)
-        if not all_args:
-            return messages.PreBuiltMsgs.no_command_msg
+    async def _handle(self, message):
+        output, send_dm = self._query(message)
+        if send_dm:
+            if not message.author.dm_channel:
+                await message.author.create_dm()
+            channel = message.author.dm_channel
+            logger.debug(f"Sending output to {channel}")
+        else:
+            channel = message.channel
+            logger.debug(f"Sending output to {channel}")
+        await self._send(channel, output)
 
-        guess, *args = all_args
-        return self.data.match(guess, args)
+    def _query(self, msg_obj):
+        args = self._parse(msg_obj.content)
+
+        return self.data.respond(msg_obj, *args)
 
     def _parse(self, content):
-        return content[len(self.command_prefix):].split()
+        return content[len(self.conf.command_prefix):].split()
 
     def _isCommand(self, message):
-        checks = (message.content.startswith(self.command_prefix),
+        checks = (message.content.startswith(self.conf.command_prefix),
                   message.author != self.user)
         return all(checks)
 
     async def _send(self, channel, output):
-        msgs = output.respond()
-        for msg in msgs:
-            if msg:
-                await channel.send(**msg)
-            else:
-                print("Silent commmand!")
+        if not output:
+            logger.debug("Silent commmand!")
+        for out in output:
+            await channel.send(**out)
+
+    async def on_error(self, event_method, *args, **kwargs):
+        print('Ignoring exception in {}'.format(event_method), file=sys.stderr)
+        traceback.print_exc()
+        logger.exception("Exception:")

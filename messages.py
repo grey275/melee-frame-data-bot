@@ -1,44 +1,74 @@
+import logging
 import yaml
 
 import discord
 
-from response import Response
-from config import Config
+import config
 
-class Message(Response):
+logger = logging.getLogger(__name__)
+logger.propagate
+
+
+class WrittenMSG:
     """
     Handwritten messages for the user.
     """
+    config = config.WrittenMSG
+
     def _fetchRawMsgs(message_file):
         with open(message_file, 'r') as f:
             msg_dict = yaml.load(f.read())
         return msg_dict
 
-
-    _raw_msgs = _fetchRawMsgs(Config.message_file)
+    _raw_msgs = _fetchRawMsgs(config.message_file)
 
     def __init__(self, key, **info):
-        super().__init__()
-        raw_msg = self._raw_msgs[key]
-        self._output = list()
-        if isinstance(raw_msg, str):
-            self._output.append({"content": raw_msg.format(**info)})
+        msg = self._raw_msgs[key]
+        self._info = info
+        assert msg is not None
+        if info:
+            msg = self._format(msg)
+        if "embed" in msg:
+            embed = discord.Embed(**msg["embed"])
+            for field in msg["embed"]["fields"]:
+                embed.add_field(**field)
+            msg["embed"] = embed
+        self._msg = msg
+
+    def get(self):
+        return self._msg
+
+    def _format(self, msg):
+        """
+        Calls format(self._info) on all strings with self._info
+        in potentially nested list, dict or str.
+        """
+        if isinstance(msg, str):
+            return self._formatText(msg)
+        elif isinstance(msg, list):
+            return self._formatList(msg)
+        elif isinstance(msg, dict):
+            return self._formatDict(msg)
         else:
-            embed_info = dict()
-            fields = []
-            for k, v in raw_msg.items():
-                if k == "fields":
-                    fields = v
-                    print("fields found")
-                else:
-                    embed_info[k] = v
-            self._output.append({"embed": self._makeEmbedOBJ(fields=fields, **embed_info)})
+            raise TypeError("Invalid type:{}".format(type(msg)))
 
-    def _addInfo(self, raw_msg, info):
-        pass
 
-class PreBuiltMsgs:
-    help_msg = Message("Help", contributor_list=Config.contributor_list)
-    no_command_msg = Message("NoCommand")
-    info_msg = Message("Info")
-    invite_msg = Message("Invite")
+    def _formatDict(self, dct):
+        """
+        Recursively applies format(**info) to all strings in a dict.
+        Embed objects can be constructed from a dict.
+        """
+        for key, val in dct.items():
+            if val is None:
+                breakpoint()
+            dct[key] = self._format(val)
+        return dct
+
+    def _formatList(self, lst):
+        """
+        Formats all text in list.
+        """
+        return [self._format(txt) for txt in lst]
+
+    def _formatText(self, txt):
+        return txt.format(**self._info)

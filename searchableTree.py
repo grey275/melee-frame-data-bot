@@ -14,9 +14,8 @@ logger.addHandler(stream_handler)
 
 class SearchableTree(Response):
     """
-    Abstract class for classes which contain dictionary which points to
-    a bunch of possible responses to a user query, and matches a response
-    with respond().
+    Tree containing fuzzy searchable response family
+    objects (self._children) via self.respond().
     """
 
     conf = config.SearchableTree
@@ -29,18 +28,21 @@ class SearchableTree(Response):
         super().__init__(name, dm)
         self._children = dict()
 
-    def respond(self, usr_msg_obj, *args):
+    def respond(self, usr_msg_obj, args, options):
         if args:
-            return self._match(usr_msg_obj, *args)
+            guess, *args = args
+            return self._match(usr_msg_obj, guess, args, options)
         elif not self._output:
             error = WrittenMSG("RequiresArg",
                                name=self.name,
                                valid_args=self._children.keys())
             return [error.get()]
         else:
-            return self._output, self._dm
+            return super().respond(usr_msg_obj, args, options)
 
-    def _match(self, msg_obj, guess, *args):
+
+
+    def _match(self, msg_obj, guess, args, options):
         """
         Searches the tree based on user input.
         This method is indirectly recursive, in
@@ -54,6 +56,6 @@ class SearchableTree(Response):
                                        closest_match=match,
                                        match_rate=rate)
 
-            return [not_found_msg.get()]
+            return [not_found_msg.get()], self._dm
 
-        return self._children[match].respond(msg_obj, *args)
+        return self._children[match].respond(msg_obj, args, options)

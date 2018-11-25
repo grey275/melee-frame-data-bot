@@ -2,6 +2,8 @@ import re
 
 from credentials import Creds
 
+develop = True
+
 
 class ServiceAccount:
     creds = Creds.service_account_creds
@@ -12,8 +14,10 @@ class Client:
     command_prefix = "$d"
     activity_msg = "{} help for Commands".format(command_prefix)
 
+
 class SearchableTree:
     min_match_percent = 80
+
 
 class AllStructuredData(SearchableTree):
     sheet_url = "https://docs.google.com/spreadsheets/d/12dwtMFdi95l03npBFuWI0fK62V0QZ6xET3qJ4oVdGc0&edit#gid=1165995726"
@@ -21,7 +25,7 @@ class AllStructuredData(SearchableTree):
     sheet_id = re.search("id\=", sheet_url).end()
     char_names = {
         "Fox",
-        "Falco",
+        # "Falco",
         # "Marth",
         # "Samus",
         # "Sheik",

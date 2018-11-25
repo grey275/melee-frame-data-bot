@@ -12,26 +12,26 @@ class Response:
         If dm is true, the client will direct message the user instead.
         """
         self.name = name
-        self._dm = dm
         self._output = list()
+        self._dm = dm
 
-    def respond(self, usr_msg_obj, *args):
+    def respond(self, usr_msg_obj, args, options):
         """
         Redefinition of this method later will allow for
         commands to change the state of the program.
         """
-        self._action(usr_msg_obj, *args)
+        dm = self._checkOptions(options)
         if args:
             error = WrittenMSG("NoArgTaken", name=self.name).get()
-            return [error], self._dm
+            return [error], dm
         else:
-            return self._output, self._dm
+            return self._output, dm
 
-    def _action(self, usr_msg_obj, *args):
-        """
-        Executed during a call to respond.
-        """
-        pass
+    def _checkOptions(self, options):
+        if "nodm" in options:
+            return False
+        else:
+            return self._dm
 
     def _formatOutputList(self, lst):
         """

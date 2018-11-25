@@ -14,25 +14,25 @@ logger.propagate = True
 
 
 class AllStructuredData(SearchableTree):
-    """
+    '''
     Stores all responses to user data in a tree structure,
     and a way to trigger those responses though a recursive
     fuzzy search.
-    """
+    '''
     conf = config.AllStructuredData
 
     def __init__(self, session):
-        super().__init__("AllStructuredData")
+        super().__init__('Commands')
         self._children = self._build(session)
-        self._output.append(WrittenMSG("NoCommand").get())
+        self._output.append(WrittenMSG('NoArgs').get())
 
     def _build(self, session):
         get_worksheet = self._fetchAllWorksheets(session).worksheet
         child_list = [
-            WrittenResponse("Help", dm=True, contrib_list=self.conf.contrib_list),
-            ListResponse("Character Names", self.conf.char_names),
-            WrittenResponse("Invite", link=self.conf.invite_link),
-            WrittenResponse("Info"),
+            WrittenResponse('Help', dm=True, contrib_list=self.conf.contrib_list),
+            ListResponse('Character Names', self.conf.char_names),
+            WrittenResponse('Invite', link=self.conf.invite_link),
+            WrittenResponse('Info', dm=True),
             *(Character(char, get_worksheet(char)) for char in self.conf.char_names),
         ]
 
@@ -41,8 +41,8 @@ class AllStructuredData(SearchableTree):
     def _buildCharacters(self, get_worksheet):
         characters = dict()
         for char in self.conf.char_names:
-            logger.debug("building {}".format(char))
-            characters[char] = Character("char", get_worksheet(char))
+            logger.debug('building {}'.format(char))
+            characters[char] = Character('char', get_worksheet(char))
         return characters
 
     def _fetchAllWorksheets(self, session):
@@ -51,9 +51,9 @@ class AllStructuredData(SearchableTree):
 
 
 class Worksheet(SearchableTree):
-    """
+    '''
     Base class for the data extracted from a sheet.
-    """
+    '''
 
     def __init__(self, name, worksheet):
         super().__init__(name)
@@ -62,10 +62,10 @@ class Worksheet(SearchableTree):
         # self.worksheet
 
     def _getRect(self, start_row, start_col, end_col=False):
-        """
+        '''
         Returns the largest rectangle with no completely
         empty cells specified by the arguments.
-        """
+        '''
         rect = list()
         if end_col is False:
             end_col = self._getRowSectLength(self._all_values[start_row],
@@ -84,11 +84,11 @@ class Worksheet(SearchableTree):
         return i
 
     def _getTableSection(self, start_row, col_range):
-        """
+        '''
         Gets a section of the table.
         Starts at the top of the table, and adds each row
         consecutively until a row is found with missing elements.
-        """
+        '''
         start_col, end_col = col_range
         section = list()
         row_len = len(self._all_values)
@@ -104,16 +104,16 @@ class Worksheet(SearchableTree):
 
 
 class General(Worksheet):
-    """
+    '''
     Universal Framedata
-    """
+    '''
     def __init__(self, worksheet):
-        super().__init__("General", worksheet)
-        self._output.append({"embed": self._buildEmbed()})
+        super().__init__('General', worksheet)
+        self._output.append({'embed': self._buildEmbed()})
 
     def _buildEmbed(self):
-        title = "General"
-        header = "These are the same for most characters"
+        title = 'General'
+        header = 'These are the same for most characters'
         embed = discord.Embed(title=title, header=header)
         for field in self._addMoves() + self._addMisc():
             embed.add_field(**field)
@@ -125,33 +125,33 @@ class General(Worksheet):
         *most_labels, last_label = labels
         for name, *data in moves:
             *most_data, last_data = data
-            most_value = "".join(("{}: {}, ".format(l, d)
+            most_value = ''.join(('{}: {}, '.format(l, d)
                                   for l, d in zip(most_labels, last_label)))
-            last_value = "{}: {}".format(last_label, last_data)
+            last_value = '{}: {}'.format(last_label, last_data)
 
-            fields.append({"name": name, "value": most_value+last_value})
+            fields.append({'name': name, 'value': most_value+last_value})
         return fields
 
     def _addMisc(self):
         data = self._getRect(2, 5)
         fields = list()
         for name, value in data:
-            fields.append({"name": name, "value": value})
+            fields.append({'name': name, 'value': value})
         return fields
 
 
 class Character(Worksheet):
-    """
+    '''
     Takes worksheet containing Character info and
     structures its data.
-    """
+    '''
 
     def __init__(self, name, worksheet):
         super().__init__(name, worksheet)
 
         self._worksheet = worksheet
         self._children = self._buildMoves()
-        logger.debug(f"Building {self.name}")
+        logger.debug(f'Building {self.name}')
         self._output = self._buildOutput()
         del self._all_values
 
@@ -176,17 +176,17 @@ class Character(Worksheet):
         embeds = (self._embedStats(stat_table),
                   self._embedMoveList(labeled_move_names))
 
-        return [{"embed": e} for e in embeds]
+        return [{'embed': e} for e in embeds]
 
     def _embedStats(self, stat_table):
-        title = "{}'s General Stats".format(self.name)
+        title = '{}\'s General Stats'.format(self.name)
         embed = discord.Embed(title=title)
         for n, v in stat_table:
             embed.add_field(name=n, value=v)
         return embed
 
     def _embedMoveList(self, labeled_move_names):
-        title = "{}'s Moves".format(self.name)
+        title = '{}\'s Moves'.format(self.name)
         embed = discord.Embed(title=title)
         for label, names in labeled_move_names.items():
             name_str = self._formatOutputList(names)
@@ -195,7 +195,7 @@ class Character(Worksheet):
 
     def _buildStats(self):
         start_row = 2
-        start_col = self._worksheet.find("Jumpsquat Frames").col - 1
+        start_col = self._worksheet.find('Jumpsquat Frames').col - 1
         end_col = start_col+2
         col_range = start_col, end_col
         stat_table = self._getTableSection(start_row, col_range)
@@ -225,12 +225,12 @@ class Move(Response):
     def _makeMove(self, character, name, labels, data):
         output = list()
         *data, url = data
-        output.append({"embed": self._makeEmbed(character, name, labels, data)})
-        output.append({"content": url})
+        output.append({'embed': self._makeEmbed(character, name, labels, data)})
+        output.append({'content': url})
         return output
 
     def _makeEmbed(self, character, name, labels, data):
-        title = "{}'s {}".format(character, name)
+        title = '{}\'s {}'.format(character, name)
         embed = discord.Embed(title=title)
         for l, d in zip(labels, data):
             embed.add_field(name=l, value=d)

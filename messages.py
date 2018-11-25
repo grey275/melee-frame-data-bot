@@ -60,7 +60,7 @@ class WrittenMSG:
         """
         for key, val in dct.items():
             if val is None:
-                breakpoint()
+                raise ValueError("val is none")
             dct[key] = self._format(val)
         return dct
 

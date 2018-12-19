@@ -1,18 +1,7 @@
-credentials.json
-google-service-account.json
-config.json
 Pipfile.lock
-config.yaml
-credentials.py
-userCredentials.py
-linkDeProxy.py
 
-utilities
+*.org
+*.org
+*.org_archive
 
-notes.org
-test.py
-todo.org
-todo.org_archive
-
-__pycache__/
-Pipfile.lock
+**__pycache__/

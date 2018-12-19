@@ -63,11 +63,6 @@ MatchNotFound:
     Closest found is **{closest_match}**(match rate: **{match_rate}**).
     Enter **$fd help** for more information about this bot.
 
-NoSuchArgument:
-  content: >-
-    No approximate match found for argument **{user_arg}** in command {matched_command}.
-    The closest match was **{matched_arg}.**
-
 RequiresArg:
   content: >-
     **{name} requires an argument. Valid arguments are {valid_args}.
@@ -91,3 +86,7 @@ NoSuchOption:
 DMNotify:
   content: DMed! To display the message on this channel instead, include the option -nodm in the command.
 
+
+SuggestionReceived:
+  content: >-
+    Thanks for your alias suggestion! It has been sent to the FrameDataBot discord server for review. You will be notified if it's accepted!

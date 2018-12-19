@@ -1,8 +1,6 @@
 import logging
 import yaml
 
-import discord
-
 import config
 
 logger = logging.getLogger(__name__)
@@ -28,12 +26,7 @@ class WrittenMSG:
         assert msg is not None
         if info:
             msg = self._format(msg)
-        if "embed" in msg:
-            embed = discord.Embed(**msg["embed"])
-            for field in msg["embed"]["fields"]:
-                embed.add_field(**field)
-            msg["embed"] = embed
-        self._msg = msg
+        return msg
 
     def get(self):
         return self._msg
@@ -51,7 +44,6 @@ class WrittenMSG:
             return self._formatDict(msg)
         else:
             raise TypeError("Invalid type:{}".format(type(msg)))
-
 
     def _formatDict(self, dct):
         """

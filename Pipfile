@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 fuzzywuzzy = "*"
-"discord.py" = {file = "https://github.com/Rapptz/discord.py/archive/rewrite.zip", extras = ["voice"], editabe = true}
+"discord.py" = {extras = ["voice"],editabe = true,file = "https://github.com/Rapptz/discord.py/archive/rewrite.zip"}
 google-api-python-client = "*"
 python-levenshtein = "*"
 websockets = "*"
@@ -15,10 +15,13 @@ authlib = "*"
 pyyaml = "*"
 
 [dev-packages]
+importmagic = "*"
 ipython = "*"
 requests = "*"
 setuptools = "*"
-v = {version = "*", editable = true}
+flake8 = "*"
+autoflake = "*"
+isort = "*"
 
 [requires]
 python_version = "3.7"

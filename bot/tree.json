@@ -1,0 +1,1357 @@
+{
+    "output": [{
+        "content": "No arguments supplied!"
+    }],
+    "aliases": [],
+    "children": {
+        "Help": {
+            "output": [{
+                "embed": {
+                    "title": "Welcome to Grey's Melee FrameData Bot!",
+                    "description": "Enter `$fd <character> <move>` to see that move's framedata.\n*example:* `$fd captainfalcon fair`\nAs in the above example, don't use spaces for multi-word character and move names.\nMoves are fuzzy-searched so you don't have to type them out exactly!\n\n**More Commands:**\nJust as above, type $fd followed by one of these commands.\n",
+                    "fields": [{
+                        "name": "Characters",
+                        "value": "Displays all characters with available data."
+                    }, {
+                        "name": "<character>",
+                        "value": "Displays a character's moves and general attributes."
+                    }, {
+                        "name": "<character> <move>",
+                        "value": "Displays the framedata of the specified move."
+                    }, {
+                        "name": "Invite",
+                        "value": "Displays the invite link so you can add this bot to your server!"
+                    }, {
+                        "name": "Info",
+                        "value": "Info about this bot's dataset and the project more generally."
+                    }],
+                    "footer": "A special thanks to the following community members who contributed to this project:\n  ['sp99', 'cfx']\n"
+                }
+            }],
+            "aliases": [],
+            "children": {}
+        },
+        "Invite": {
+            "output": [{
+                "content": "https://discordapp.com/oauth2/authorize?client_id=492378733399900169&scope=bot&permissions=67584\n"
+            }],
+            "aliases": [],
+            "children": {}
+        },
+        "Info": {
+            "output": [{
+                "embed": {
+                    "fields": [{
+                        "name": "Format Notes",
+                        "value": "Staling is not taken into account at any point in this dataset, so unfortunately you will have to factor that in yourself.\n- For the startup category, the values represent the first *active* frame in the move's animation, not the number of startup frames before the hitbox comes out.\n- For the active frame category of multihit moves, I'm honestly not sure of what the format is supposed to mean, and at this point I'm afraid to ask. I'll hopefully be redoing those so they make a little more sense at some point.\n"
+                    }, {
+                        "name": "Notes on the Current State of the Dataset",
+                        "value": "The dataset being used is a modification of a previously hand-compiled spreadsheet by a currently unknown person, at least to me, so though I haven't come across any serious unexplained errors yet, and I still appreciate this person's work, there are likely some errors. See below for the original spreadsheet.\nIf you encounter any errors please notify me and I'll see if I can fix them. It is also of course incomplete, and I don't have any plans of expanding it by hand, but in the future I'll be looking for a way to compile some more reliable and complete data in a more automated way. \n*As it stands though, I wouldn't recommend relying on this bot too heavily for information if you're doing any serious labbing.* It's meant to be used mainly as a quick reference for simpler questions more typically asked. More reliable sources of information include Stratocaster's Hitbox Project, and IKneedata's calculator.\n"
+                    }, {
+                        "name": "Contribution",
+                        "value": "If you'd like to contribute to this project in some way, please let me(Grey#6475) know! Of course any help is appreciated. The gitlab repo is not currently publicly visible, but if anyone is interested in contributing code I'll make it public. I should mention that I'm not a very experienced programmer. This is a project I put together to learn  while making something that is hopefully useful. With that in mind, any comments, criticism or tips are very welcome!\n"
+                    }, {
+                        "name": "Original Spreadsheet",
+                        "value": "https://docs.google.com/spreadsheets/d/12dwtMFdi95l03npBFuWI0fK62V0QZ6xET3qJ4oVdGc0/edit#gid=1165995726\n"
+                    }]
+                }
+            }],
+            "aliases": [],
+            "children": {}
+        },
+        "Fox": {
+            "output": [{
+                "embed": {
+                    "title": "Fox's General Stats",
+                    "fields": [{
+                        "name": "Jumpsquat Frames",
+                        "value": "3"
+                    }, {
+                        "name": "Dash Frames",
+                        "value": "11"
+                    }, {
+                        "name": "Weight",
+                        "value": "75"
+                    }, {
+                        "name": "Fall Speed",
+                        "value": "2.8"
+                    }, {
+                        "name": "Ledgedash Intangibility",
+                        "value": "15"
+                    }]
+                }
+            }, {
+                "embed": {
+                    "title": "Fox's Moves",
+                    "fields": [{
+                        "name": "Grounded Normals",
+                        "value": "Jab 1, Jab 2, Rapid Jab, Ftilt, UA-Ftilt, DA-Ftilt, Utilt, Dtilt, Fsmash, Usmash, Dsmash, Dash Attack, Stand Grab, Run Grab"
+                    }, {
+                        "name": "Aerials",
+                        "value": "Nair, Fair, Bair, Uair, Dair"
+                    }, {
+                        "name": "Specials",
+                        "value": "Neutral-B, Aerial Neutral-B, Side-B, Aerial Side-B, Up-B, Down-B"
+                    }, {
+                        "name": "Dodges",
+                        "value": "Spot Dodge, F-Roll, B-Roll"
+                    }, {
+                        "name": "GU Attacks",
+                        "value": "GU Attack [Back], GU Attack [Stmch], Ledge Attack [L], Ledge Attack [H]"
+                    }]
+                }
+            }],
+            "aliases": [],
+            "children": {
+                "Jab 1": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Jab 1",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "2"
+                            }, {
+                                "name": "Active",
+                                "value": "2"
+                            }, {
+                                "name": "Recovery",
+                                "value": "12"
+                            }, {
+                                "name": "On Block",
+                                "value": "-10"
+                            }, {
+                                "name": "Damage",
+                                "value": "4"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "4"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "3"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/Swv4v4a.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Jab 2": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Jab 2",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "3"
+                            }, {
+                                "name": "Active",
+                                "value": "2"
+                            }, {
+                                "name": "Recovery",
+                                "value": "14"
+                            }, {
+                                "name": "On Block",
+                                "value": "-12"
+                            }, {
+                                "name": "Damage",
+                                "value": "4"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "4"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "3"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "2f gap between Jab 1 and Jab 2 OB"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/0uW2mic.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Rapid Jab": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Rapid Jab",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "3"
+                            }, {
+                                "name": "Active",
+                                "value": "~"
+                            }, {
+                                "name": "Recovery",
+                                "value": "~"
+                            }, {
+                                "name": "On Block",
+                                "value": "-8"
+                            }, {
+                                "name": "Damage",
+                                "value": "2"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "3"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "2"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "8f gap between Jab 2 and Rapid Jab OB"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/i2KWQRZ.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Ftilt": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Ftilt",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "5"
+                            }, {
+                                "name": "Active",
+                                "value": "5"
+                            }, {
+                                "name": "Recovery",
+                                "value": "17"
+                            }, {
+                                "name": "On Block",
+                                "value": "-15"
+                            }, {
+                                "name": "Damage",
+                                "value": "9"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "6"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "6"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/LZroo5k.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "UA-Ftilt": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's UA-Ftilt",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "5"
+                            }, {
+                                "name": "Active",
+                                "value": "5"
+                            }, {
+                                "name": "Recovery",
+                                "value": "17"
+                            }, {
+                                "name": "On Block",
+                                "value": "-15"
+                            }, {
+                                "name": "Damage",
+                                "value": "9"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "6"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "6"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/H5zaUir.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "DA-Ftilt": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's DA-Ftilt",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "5"
+                            }, {
+                                "name": "Active",
+                                "value": "5"
+                            }, {
+                                "name": "Recovery",
+                                "value": "17"
+                            }, {
+                                "name": "On Block",
+                                "value": "-15"
+                            }, {
+                                "name": "Damage",
+                                "value": "9"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "6"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "6"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/ko63Obe.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Utilt": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Utilt",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "5"
+                            }, {
+                                "name": "Active",
+                                "value": "7"
+                            }, {
+                                "name": "Recovery",
+                                "value": "12"
+                            }, {
+                                "name": "On Block",
+                                "value": "-11"
+                            }, {
+                                "name": "Damage",
+                                "value": "12"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "7"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "7"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/p8OAA85.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Dtilt": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Dtilt",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "7"
+                            }, {
+                                "name": "Active",
+                                "value": "3"
+                            }, {
+                                "name": "Recovery",
+                                "value": "18"
+                            }, {
+                                "name": "On Block",
+                                "value": "-14"
+                            }, {
+                                "name": "Damage",
+                                "value": "10"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "6"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "6"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/hYfTsfu.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Fsmash": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Fsmash",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "12"
+                            }, {
+                                "name": "Active",
+                                "value": "11"
+                            }, {
+                                "name": "Recovery",
+                                "value": "17"
+                            }, {
+                                "name": "On Block",
+                                "value": "-19"
+                            }, {
+                                "name": "Damage",
+                                "value": "15"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "8"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "8"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/CwtXhHQ.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Usmash": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Usmash",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "7"
+                            }, {
+                                "name": "Active",
+                                "value": "11"
+                            }, {
+                                "name": "Recovery",
+                                "value": "24"
+                            }, {
+                                "name": "On Block",
+                                "value": "-24"
+                            }, {
+                                "name": "Damage",
+                                "value": "18"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "9"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "10"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/Rvm6bAD.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Dsmash": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Dsmash",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "6"
+                            }, {
+                                "name": "Active",
+                                "value": "5"
+                            }, {
+                                "name": "Recovery",
+                                "value": "35"
+                            }, {
+                                "name": "On Block",
+                                "value": "-31"
+                            }, {
+                                "name": "Damage",
+                                "value": "15"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "8"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "8"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/xaGN1Xz.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Dash Attack": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Dash Attack",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "4"
+                            }, {
+                                "name": "Active",
+                                "value": "14"
+                            }, {
+                                "name": "Recovery",
+                                "value": "18"
+                            }, {
+                                "name": "On Block",
+                                "value": "-25"
+                            }, {
+                                "name": "Damage",
+                                "value": "9"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "6"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "6"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/D5tsDvJ.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Stand Grab": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Stand Grab",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "7"
+                            }, {
+                                "name": "Active",
+                                "value": "2"
+                            }, {
+                                "name": "Recovery",
+                                "value": "22"
+                            }, {
+                                "name": "On Block",
+                                "value": "-"
+                            }, {
+                                "name": "Damage",
+                                "value": "-"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "-"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "-"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/qmxzg9k.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Run Grab": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Run Grab",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "12"
+                            }, {
+                                "name": "Active",
+                                "value": "2"
+                            }, {
+                                "name": "Recovery",
+                                "value": "27"
+                            }, {
+                                "name": "On Block",
+                                "value": "-"
+                            }, {
+                                "name": "Damage",
+                                "value": "-"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "-"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "-"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/w6xZSp0.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Nair": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Nair",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "4"
+                            }, {
+                                "name": "Active",
+                                "value": "28"
+                            }, {
+                                "name": "Recovery",
+                                "value": "11"
+                            }, {
+                                "name": "On Block",
+                                "value": "0"
+                            }, {
+                                "name": "Damage",
+                                "value": "12"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "7"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "7"
+                            }, {
+                                "name": "Landlag",
+                                "value": "7"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/nWrdPF2.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Fair": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Fair",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "6"
+                            }, {
+                                "name": "Active",
+                                "value": "3(7)3(5)3(6)3(7)3"
+                            }, {
+                                "name": "Recovery",
+                                "value": "8"
+                            }, {
+                                "name": "On Block",
+                                "value": "-6"
+                            }, {
+                                "name": "Damage",
+                                "value": "26 (7+5+6+5+3)"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "22 (5+4+5+4+4)"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "5"
+                            }, {
+                                "name": "Landlag",
+                                "value": "11"
+                            }, {
+                                "name": "Notes",
+                                "value": "Shieldstun is from the 1st hit"
+                            }]
+                        }
+                    }, {
+                        "content": "http://i.imgur.com/GSX5wHJ.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Bair": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Bair",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "4"
+                            }, {
+                                "name": "Active",
+                                "value": "16"
+                            }, {
+                                "name": "Recovery",
+                                "value": "19"
+                            }, {
+                                "name": "On Block",
+                                "value": "-2"
+                            }, {
+                                "name": "Damage",
+                                "value": "15"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "8"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "8"
+                            }, {
+                                "name": "Landlag",
+                                "value": "10"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/1gNTwov.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Uair": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Uair",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "8"
+                            }, {
+                                "name": "Active",
+                                "value": "2(1)4"
+                            }, {
+                                "name": "Recovery",
+                                "value": "22"
+                            }, {
+                                "name": "On Block",
+                                "value": "-2"
+                            }, {
+                                "name": "Damage",
+                                "value": "18 (5+13)"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "11 (4+7)"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "7"
+                            }, {
+                                "name": "Landlag",
+                                "value": "9"
+                            }, {
+                                "name": "Notes",
+                                "value": "Shieldstun is from the 2nd hit"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/3UlEN8R.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Dair": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Dair",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "5"
+                            }, {
+                                "name": "Active",
+                                "value": "20"
+                            }, {
+                                "name": "Recovery",
+                                "value": "25"
+                            }, {
+                                "name": "On Block",
+                                "value": "-6"
+                            }, {
+                                "name": "Damage",
+                                "value": "21 (3*7)"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "28 (4*7)"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "3"
+                            }, {
+                                "name": "Landlag",
+                                "value": "9"
+                            }, {
+                                "name": "Notes",
+                                "value": "1f gap between hits"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/Nm9kcbT.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Neutral-B": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Neutral-B",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "12"
+                            }, {
+                                "name": "Active",
+                                "value": "~"
+                            }, {
+                                "name": "Recovery",
+                                "value": "~"
+                            }, {
+                                "name": "On Block",
+                                "value": "-22"
+                            }, {
+                                "name": "Damage",
+                                "value": "3"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "4"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "7"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/KdR7kH0.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Aerial Neutral-B": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Aerial Neutral-B",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "10"
+                            }, {
+                                "name": "Active",
+                                "value": "1"
+                            }, {
+                                "name": "Recovery",
+                                "value": "26"
+                            }, {
+                                "name": "On Block",
+                                "value": "+3"
+                            }, {
+                                "name": "Damage",
+                                "value": "3"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "4"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "3"
+                            }, {
+                                "name": "Landlag",
+                                "value": "4"
+                            }, {
+                                "name": "Notes",
+                                "value": "You can land and release a laser on the same frame"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/Z0A4i98.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Side-B": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Side-B",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "22"
+                            }, {
+                                "name": "Active",
+                                "value": "4"
+                            }, {
+                                "name": "Recovery",
+                                "value": "38"
+                            }, {
+                                "name": "On Block",
+                                "value": "-36"
+                            }, {
+                                "name": "Damage",
+                                "value": "7"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "5"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "5"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/izk7Bmg.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Aerial Side-B": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Aerial Side-B",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "22"
+                            }, {
+                                "name": "Active",
+                                "value": "4"
+                            }, {
+                                "name": "Recovery",
+                                "value": "38"
+                            }, {
+                                "name": "On Block",
+                                "value": "~"
+                            }, {
+                                "name": "Damage",
+                                "value": "7"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "5"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "5"
+                            }, {
+                                "name": "Landlag",
+                                "value": "20"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/lxD6Uul.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Up-B": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Up-B",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "20"
+                            }, {
+                                "name": "Active",
+                                "value": "53"
+                            }, {
+                                "name": "Recovery",
+                                "value": "20"
+                            }, {
+                                "name": "On Block",
+                                "value": "~"
+                            }, {
+                                "name": "Damage",
+                                "value": "14"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "7"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "8"
+                            }, {
+                                "name": "Landlag",
+                                "value": "3"
+                            }, {
+                                "name": "Notes",
+                                "value": "Has no hitbox from f 33-42"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/3hlc8Ec.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Down-B": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Down-B",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "1"
+                            }, {
+                                "name": "Active",
+                                "value": "1"
+                            }, {
+                                "name": "Recovery",
+                                "value": "30"
+                            }, {
+                                "name": "On Block",
+                                "value": "-1"
+                            }, {
+                                "name": "Damage",
+                                "value": "5"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "4"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "4"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "Intangible f1. OB assumes jc"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/ejW4D0O.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Spot Dodge": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Spot Dodge",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "2"
+                            }, {
+                                "name": "Active",
+                                "value": "14"
+                            }, {
+                                "name": "Recovery",
+                                "value": "7"
+                            }, {
+                                "name": "On Block",
+                                "value": "-"
+                            }, {
+                                "name": "Damage",
+                                "value": "-"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "-"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "-"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/C3NdRXo.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "F-Roll": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's F-Roll",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "4"
+                            }, {
+                                "name": "Active",
+                                "value": "16"
+                            }, {
+                                "name": "Recovery",
+                                "value": "12"
+                            }, {
+                                "name": "On Block",
+                                "value": "-"
+                            }, {
+                                "name": "Damage",
+                                "value": "-"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "-"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "-"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/prphG8T.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "B-Roll": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's B-Roll",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "4"
+                            }, {
+                                "name": "Active",
+                                "value": "16"
+                            }, {
+                                "name": "Recovery",
+                                "value": "12"
+                            }, {
+                                "name": "On Block",
+                                "value": "-"
+                            }, {
+                                "name": "Damage",
+                                "value": "-"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "-"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "-"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "-"
+                            }]
+                        }
+                    }, {
+                        "content": "https://imgur.com/wHxRFj0.gif"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "GU Attack [Back]": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's GU Attack [Back]",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "17"
+                            }, {
+                                "name": "Active",
+                                "value": "3(4)3"
+                            }, {
+                                "name": "Recovery",
+                                "value": "23"
+                            }, {
+                                "name": "On Block",
+                                "value": "-28/-21"
+                            }, {
+                                "name": "Damage",
+                                "value": "6"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "5"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "4"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "Intangible f 1-26. Hits in front first. OB: 1st hit / 2nd hit"
+                            }]
+                        }
+                    }, {
+                        "content": "-"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "GU Attack [Stmch]": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's GU Attack [Stmch]",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "19"
+                            }, {
+                                "name": "Active",
+                                "value": "2(4)2"
+                            }, {
+                                "name": "Recovery",
+                                "value": "23"
+                            }, {
+                                "name": "On Block",
+                                "value": "-25/-20"
+                            }, {
+                                "name": "Damage",
+                                "value": "6"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "5"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "4"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "Intangible f 1-26. Hits behind first. OB: 1st hit / 2nd hit"
+                            }]
+                        }
+                    }, {
+                        "content": "-"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Ledge Attack [L]": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Ledge Attack [L]",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "25"
+                            }, {
+                                "name": "Active",
+                                "value": "10"
+                            }, {
+                                "name": "Recovery",
+                                "value": "20"
+                            }, {
+                                "name": "On Block",
+                                "value": "-24"
+                            }, {
+                                "name": "Damage",
+                                "value": "8"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "5"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "5"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "Intangible f 1-21"
+                            }]
+                        }
+                    }, {
+                        "content": "-"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                },
+                "Ledge Attack [H]": {
+                    "output": [{
+                        "embed": {
+                            "title": "Fox's Ledge Attack [H]",
+                            "fields": [{
+                                "name": "Startup",
+                                "value": "57"
+                            }, {
+                                "name": "Active",
+                                "value": "3"
+                            }, {
+                                "name": "Recovery",
+                                "value": "10"
+                            }, {
+                                "name": "On Block",
+                                "value": "-7"
+                            }, {
+                                "name": "Damage",
+                                "value": "8"
+                            }, {
+                                "name": "Shield Hitlag",
+                                "value": "5"
+                            }, {
+                                "name": "Shieldstun",
+                                "value": "5"
+                            }, {
+                                "name": "Landlag",
+                                "value": "-"
+                            }, {
+                                "name": "Notes",
+                                "value": "Intangible f 1-54"
+                            }]
+                        }
+                    }, {
+                        "content": "-"
+                    }],
+                    "aliases": [],
+                    "children": {}
+                }
+            }
+        }
+    }
+}

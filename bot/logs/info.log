@@ -1,0 +1,1534 @@
+2018-11-26 10:33:34,293 | INFO | framedata-bot.client | Command Handled | message: <Message id=516682701600849931 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d falco dairauthor: Grey#6475 output: [{'content': 'No approximate match found for **falco** in category **Commands**.\nClosest found is **Fox**(match rate: **50**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-11-26 15:05:11,573 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-26 15:05:13,575 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:06:41,644 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-26 15:06:43,648 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:06:47,133 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 71, in _handle
+    output, send_dm = self.data.respond(msg_obj, args, options)
+  File "bot/searchableTree.py", line 39, in respond
+    return super().respond(msg_obj, args, options)
+  File "bot/response.py", line 28, in respond
+    return self._handleArgs(self, args, options)
+  File "bot/searchableTree.py", line 29, in _handleArgs
+    return self._match(msg_obj, args, options)
+TypeError: _match() missing 1 required positional argument: 'send_dm'
+2018-11-26 15:06:49,397 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 71, in _handle
+    output, send_dm = self.data.respond(msg_obj, args, options)
+  File "bot/searchableTree.py", line 39, in respond
+    return super().respond(msg_obj, args, options)
+  File "bot/response.py", line 28, in respond
+    return self._handleArgs(self, args, options)
+  File "bot/searchableTree.py", line 29, in _handleArgs
+    return self._match(msg_obj, args, options)
+TypeError: _match() missing 1 required positional argument: 'send_dm'
+2018-11-26 15:09:55,485 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-26 15:09:57,488 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:10:00,407 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 71, in _handle
+    output, send_dm = self.data.respond(msg_obj, args, options)
+  File "bot/searchableTree.py", line 32, in respond
+    send_dm = self._checkOptions(options)
+  File "bot/response.py", line 41, in _checkOptions
+    return self._send_dm_default
+AttributeError: 'AllStructuredData' object has no attribute '_send_dm_default'
+2018-11-26 15:16:13,207 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-26 15:16:15,212 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:16:19,818 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 71, in _handle
+    output, send_dm = self.data.respond(msg_obj, args, options)
+  File "bot/searchableTree.py", line 39, in respond
+    return super().respond(msg_obj, args, options)
+  File "bot/response.py", line 30, in respond
+    return self._handleArgs(self, args, send_dm, options)
+  File "bot/searchableTree.py", line 29, in _handleArgs
+    return self._match(msg_obj, send_dm, args, options)
+  File "bot/searchableTree.py", line 47, in _match
+    guess, *extra_args = args
+TypeError: cannot unpack non-iterable bool object
+2018-11-26 15:17:39,144 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-26 15:17:41,148 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:17:48,144 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:17:54,790 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:17:57,834 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:18:07,063 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:18:19,916 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:20:40,633 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-26 15:20:42,636 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:20:45,456 | INFO | framedata-bot.client | new dm channel for Grey#6475
+2018-11-26 15:20:45,594 | INFO | framedata-bot.client | dm sent to Grey#6475
+2018-11-26 15:20:46,154 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:20:52,876 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:21:25,896 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-26 15:21:27,898 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:21:34,974 | INFO | framedata-bot.client | new dm channel for Grey#6475
+2018-11-26 15:21:35,114 | INFO | framedata-bot.client | dm sent to Grey#6475
+2018-11-26 15:21:35,409 | ERROR | framedata-bot.client | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 55, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 74, in _handle
+    logger.info(f'Command Handled | msg_obj: {msg_obj},'
+AttributeError: 'Client' object has no attribute 'output'
+2018-11-26 15:22:17,177 | INFO | framedata-bot.client | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-26 15:22:19,183 | INFO | framedata-bot.client | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-26 15:22:25,845 | INFO | framedata-bot.client | new dm channel for Grey#6475
+2018-11-26 15:22:25,963 | INFO | framedata-bot.client | dm sent to Grey#6475
+2018-11-26 15:22:26,313 | INFO | framedata-bot.client | Command Handled | msg_obj: <Message id=516755394975105036 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f6a0baca0d8>}]
+2018-11-26 15:22:31,753 | INFO | framedata-bot.client | Command Handled | msg_obj: <Message id=516755419616509952 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d help -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f6a0baca0d8>}]
+2018-11-29 10:56:01,126 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 10:56:03,127 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 10:56:35,205 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 53, in on_message
+    if not self._isCommand(message):
+AttributeError: 'Client' object has no attribute '_isCommand'
+2018-11-29 10:57:14,928 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 10:57:16,931 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 10:57:20,510 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 75, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 89, in __init__
+    args, options = self._parse(msg_obj.content)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 112, in _parse
+    words = content[len(self.conf.command_prefix):].split()
+AttributeError: 'Handler' object has no attribute 'conf'
+2018-11-29 10:58:15,566 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 10:58:17,567 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:00:08,754 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 11:00:10,757 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:00:27,169 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 80, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 76, in _handleArgs
+    return self._match(msg_obj, args, options)
+TypeError: _match() missing 1 required positional argument: 'options'
+2018-11-29 11:04:10,858 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 11:04:12,861 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:30:59,835 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 11:31:01,839 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:31:06,367 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 80, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 76, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 106, in _match
+    options = self._children.keys() + self.aliases.keys()
+AttributeError: 'SearchableTreeNode' object has no attribute 'aliases'
+2018-11-29 11:35:12,281 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 11:35:14,285 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:35:27,347 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 80, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 76, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 106, in _match
+    options = self._children.keys() + self._aliases.keys()
+AttributeError: 'list' object has no attribute 'keys'
+2018-11-29 11:45:33,801 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 11:45:35,804 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:45:50,501 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 86, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 82, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 112, in _match
+    options = self._children.keys() + self._child_aliases.keys()
+TypeError: unsupported operand type(s) for +: 'dict_keys' and 'dict_keys'
+2018-11-29 11:48:28,926 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 11:48:30,929 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:48:36,070 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 86, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 82, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 114, in _match
+    if match in self._child_aliases.keys():
+TypeError: unhashable type: 'dict_keys'
+2018-11-29 11:50:55,705 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 11:50:57,707 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:56:04,110 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 11:56:06,114 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 11:57:35,146 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 86, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 82, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 116, in _match
+    if match in self._child_aliases.keys():
+TypeError: unhashable type: 'list'
+2018-11-29 11:57:36,184 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 11:57:38,187 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:00:32,223 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 86, in respond
+    return self._handleArgs(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 82, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 116, in _match
+    if match in self._child_aliases.keys():
+TypeError: unhashable type: 'dict_keys'
+2018-11-29 12:00:36,068 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:00:38,070 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:01:27,794 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:01:29,797 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:02:14,654 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:02:16,657 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:02:42,318 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:02:44,321 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:03:22,388 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:03:24,391 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:03:33,774 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 94, in __init__
+    self._output, self._behavior_output = response
+ValueError: not enough values to unpack (expected 2, got 1)
+2018-11-29 12:03:51,830 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:03:53,833 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:03:54,039 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 98, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 126, in _handleBehaviorOutput
+    if 'dm' in b_o:
+TypeError: argument of type 'bool' is not iterable
+2018-11-29 12:03:57,184 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 98, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 126, in _handleBehaviorOutput
+    if 'dm' in b_o:
+TypeError: argument of type 'bool' is not iterable
+2018-11-29 12:08:51,136 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:08:53,139 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:09:00,997 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 98, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 126, in _handleBehaviorOutput
+    if 'dm' in b_o:
+TypeError: argument of type 'bool' is not iterable
+2018-11-29 12:09:44,993 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:09:46,996 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:09:55,671 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 98, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 126, in _handleBehaviorOutput
+    if 'dm' in b_o:
+TypeError: argument of type 'bool' is not iterable
+2018-11-29 12:12:24,175 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:12:26,178 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:12:27,925 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 98, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 126, in _handleBehaviorOutput
+    if 'dm' in b_o:
+TypeError: argument of type 'bool' is not iterable
+2018-11-29 12:13:35,754 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:13:37,757 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:15:21,128 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:15:23,129 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:15:38,249 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517795506693341205 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox jab1author: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f2ece2b14c8>}, {'content': 'http://i.imgur.com/Swv4v4a.gif'}]
+2018-11-29 12:22:37,937 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:22:39,940 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:22:46,206 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517797325184172049 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox jab1author: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fd580369d38>}, {'content': 'http://i.imgur.com/Swv4v4a.gif'}]
+2018-11-29 12:23:03,972 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:23:05,976 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:23:11,369 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517797448467611679 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox dtiltauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f5ecf9b25e8>}, {'content': 'http://i.imgur.com/hYfTsfu.gif'}]
+2018-11-29 12:23:14,061 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    self._output, self._behavior_output = response
+ValueError: not enough values to unpack (expected 2, got 1)
+2018-11-29 12:23:23,792 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517797500770320394 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f5ecfe39678>}]
+2018-11-29 12:23:28,181 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517797519921643520 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f5ecfe33708>}]
+2018-11-29 12:26:13,400 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517798212422074368 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f5ecfe33708>}]
+2018-11-29 12:26:21,247 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    self._output, self._behavior_output = response
+ValueError: not enough values to unpack (expected 2, got 1)
+2018-11-29 12:28:09,273 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:28:11,275 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:28:15,633 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    self._output, self._behavior_output = response
+ValueError: not enough values to unpack (expected 2, got 1)
+2018-11-29 12:29:11,397 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:29:13,400 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:29:15,558 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517798977081442321 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d foxauthor: Grey#6475 output: [{'content': "**root requires an argument. Valid arguments are dict_keys(['Jab 1', 'Jab 2', 'Rapid Jab', 'Ftilt', 'UA-Ftilt', 'DA-Ftilt', 'Utilt', 'Dtilt', 'Fsmash', 'Usmash', 'Dsmash', 'Dash Attack', 'Stand Grab', 'Run Grab', 'Nair', 'Fair', 'Bair', 'Uair', 'Dair', 'Neutral-B', 'Aerial Neutral-B', 'Side-B', 'Aerial Side-B', 'Up-B', 'Down-B', 'Spot Dodge', 'F-Roll', 'B-Roll', 'GU Attack [Back]', 'GU Attack [Stmch]', 'Ledge Attack [L]', 'Ledge Attack [H]'])."}]
+2018-11-29 12:29:44,034 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517799095641964559 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fa0f7be2708>}]
+2018-11-29 12:30:44,259 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517799348571078666 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d foxauthor: Grey#6475 output: [{'content': "**root requires an argument. Valid arguments are dict_keys(['Jab 1', 'Jab 2', 'Rapid Jab', 'Ftilt', 'UA-Ftilt', 'DA-Ftilt', 'Utilt', 'Dtilt', 'Fsmash', 'Usmash', 'Dsmash', 'Dash Attack', 'Stand Grab', 'Run Grab', 'Nair', 'Fair', 'Bair', 'Uair', 'Dair', 'Neutral-B', 'Aerial Neutral-B', 'Side-B', 'Aerial Side-B', 'Up-B', 'Down-B', 'Spot Dodge', 'F-Roll', 'B-Roll', 'GU Attack [Back]', 'GU Attack [Stmch]', 'Ledge Attack [L]', 'Ledge Attack [H]'])."}]
+2018-11-29 12:33:01,044 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:33:03,046 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:33:08,483 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517799953335189504 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d foxauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7ff4f166ad38>}, {'embed': <discord.embeds.Embed object at 0x7ff4f166ae58>}]
+2018-11-29 12:44:31,136 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 12:44:33,141 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 12:44:35,451 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517802829625163786 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d foxauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fc32b5f9d38>}, {'embed': <discord.embeds.Embed object at 0x7fc32b5f9e58>}]
+2018-11-29 12:44:39,565 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517802851058057228 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d foxauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fc32b5f9d38>}, {'embed': <discord.embeds.Embed object at 0x7fc32b5f9e58>}]
+2018-11-29 12:44:45,694 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517802877193027595 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox jab1author: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fc32b14eb88>}, {'content': 'http://i.imgur.com/Swv4v4a.gif'}]
+2018-11-29 12:44:50,961 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517802900324614179 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fc32b5fe678>}]
+2018-11-29 12:47:05,450 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 12:47:07,455 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:11:36,744 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 21:11:38,746 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:14:36,139 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 21:14:38,143 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:17:17,426 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 21:17:19,429 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:29:37,184 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 21:29:39,187 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:30:32,365 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 87, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 82, in _handleArgs
+    return self._match(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 124, in _match
+    return matched_child.respond(msg_obj, extra_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 86, in respond
+    if user_args:
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 103, in _checkBehaviors
+    behavior_output.append(behavior.execute(checked_options))
+AttributeError: 'set' object has no attribute 'append'
+2018-11-29 21:30:33,354 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 21:30:35,356 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:31:17,817 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 21:31:19,820 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:31:25,004 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 97, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 127, in _handleBehaviorOutput
+    channel = await self._getDMChannel()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 147, in _getDMChannel
+    if not author.dm_channel:
+NameError: name 'author' is not defined
+2018-11-29 21:32:31,676 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 21:32:33,680 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:32:34,811 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 97, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 127, in _handleBehaviorOutput
+    channel = await self._getDMChannel()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 149, in _getDMChannel
+    logger.info(f'new dm channel for {self.msg_obj.author}')
+AttributeError: 'Handler' object has no attribute 'msg_obj'
+2018-11-29 21:33:07,450 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 21:33:09,451 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:33:13,592 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-11-29 21:33:13,701 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-11-29 21:33:13,703 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 97, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 130, in _handleBehaviorOutput
+    await self._send(self.msg_obj.channel, dm_notify)
+AttributeError: 'Handler' object has no attribute 'msg_obj'
+2018-11-29 21:34:13,080 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 21:34:15,082 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:34:21,921 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-11-29 21:34:22,045 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-11-29 21:34:22,331 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517936157619781666 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fa2b9d79678>}]
+2018-11-29 21:35:24,245 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517936418501427231 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d falco dairauthor: Grey#6475 output: [{'content': 'No approximate match found for **falco** in category **root**.\nClosest found is **Fox**(match rate: **50**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-11-29 21:35:28,709 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517936436813627413 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox dairauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fa2b98d7d38>}, {'content': 'https://imgur.com/Nm9kcbT.gif'}]
+2018-11-29 21:36:50,794 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517936781493010432 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fa2b9d73708>}]
+2018-11-29 21:38:28,850 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 21:38:30,853 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:38:31,393 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-11-29 21:38:31,557 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-11-29 21:38:31,935 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517937204333641741 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7ff8bf7015e8>}]
+2018-11-29 21:38:52,587 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517937292330008576 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d info -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7ff8bf7015e8>}]
+2018-11-29 21:47:10,052 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 21:47:12,055 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 21:47:13,026 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=517939390601887755 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox dairauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fdaa92a7d38>}, {'content': 'https://imgur.com/Nm9kcbT.gif'}]
+2018-11-29 22:06:10,387 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-29 22:06:12,390 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-29 23:16:16,109 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-29 23:16:18,112 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-30 01:17:32,403 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-30 01:17:34,407 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-30 03:22:58,185 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-30 03:23:00,189 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-30 04:48:11,361 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-11-30 04:48:13,362 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-11-30 08:11:02,423 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-11-30 08:11:04,426 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 10:42:42,693 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 10:42:44,699 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 10:43:00,717 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 89, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 100, in _handleArgs
+    return self._match(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 124, in _match
+    return matched_child.respond(msg_obj, extra_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 96, in respond
+    behaviour_output = self._checkBehaviours(options)
+AttributeError: 'SearchableTreeNode' object has no attribute '_checkBehaviours'
+2018-12-01 10:43:18,800 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 89, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 100, in _handleArgs
+    return self._match(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 124, in _match
+    return matched_child.respond(msg_obj, extra_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 96, in respond
+    behaviour_output = self._checkBehaviours(options)
+AttributeError: 'SearchableTreeNode' object has no attribute '_checkBehaviours'
+2018-12-01 11:48:16,773 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-01 11:49:18,461 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-01 11:49:20,464 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 11:49:37,720 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 89, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 100, in _handleArgs
+    return self._match(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 124, in _match
+    return matched_child.respond(msg_obj, extra_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 96, in respond
+    behaviour_output = self._checkBehaviours(options)
+AttributeError: 'SearchableTreeNode' object has no attribute '_checkBehaviours'
+2018-12-01 11:50:34,711 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 11:50:36,714 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 11:50:38,368 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "bot/client.py", line 92, in __init__
+    response = self.searchable_tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 89, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 100, in _handleArgs
+    return self._match(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 124, in _match
+    return matched_child.respond(msg_obj, extra_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/searchableTree.py", line 96, in respond
+    behaviour_output = self._checkBehaviours(options)
+AttributeError: 'SearchableTreeNode' object has no attribute '_checkBehaviours'
+2018-12-01 11:51:05,165 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 11:51:07,169 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 11:51:08,809 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "bot/client.py", line 77, in _handle
+    await handler.respond()
+  File "bot/client.py", line 97, in respond
+    channel = await self._handleBehaviorOutput(self._behavior_output)
+  File "bot/client.py", line 125, in _handleBehaviorOutput
+    if 'dm' in b_o:
+TypeError: argument of type 'NoneType' is not iterable
+2018-12-01 11:54:22,514 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-01 11:54:24,517 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 11:54:40,048 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518515000050974730 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f66224dfc18>}]
+2018-12-01 11:54:43,117 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518515013145591816 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f66224dfc18>}]
+2018-12-01 11:56:39,929 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-01 11:56:41,930 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 11:56:46,763 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518515531784126484 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fb667bcac18>}]
+2018-12-01 12:03:36,363 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 12:03:38,365 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 12:08:47,545 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 12:08:49,548 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 12:11:00,396 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 12:11:02,399 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 12:11:21,130 | INFO | framedata-bot.__main__ | Command Handled | False_obj: <Message id=518519128592482304 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f8ffe4a4c18>}]
+2018-12-01 12:16:48,377 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 12:16:50,380 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-01 12:17:04,323 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-01 12:17:04,504 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-01 12:17:04,819 | INFO | framedata-bot.__main__ | Command Handled | False_obj: <Message id=518520591402401811 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f4cf1424c18>}]
+2018-12-01 12:18:06,716 | INFO | framedata-bot.__main__ | Command Handled | False_obj: <Message id=518520847028191252 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hi -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f4cf1424c18>}]
+2018-12-01 13:24:50,296 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-01 13:24:52,299 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 08:35:49,930 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 08:35:51,934 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 08:35:57,596 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 84, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 92, in _handleArgs
+    options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 111, in _matchChild
+    match, rate = process.extractOne(guess, self._valid_matches)
+AttributeError: 'Root' object has no attribute '_valid_matches'
+2018-12-02 09:49:31,214 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 09:49:33,217 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 09:49:34,089 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 88, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 96, in _handleArgs
+    options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 115, in _matchChild
+    match, rate = process.extractOne(guess, self._valid_matches)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 220, in extractOne
+    return max(best_list, key=lambda i: i[1])
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 78, in extractWithoutOrder
+    processed_query = processor(query)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/utils.py", line 95, in full_process
+    string_out = StringProcessor.replace_non_letters_non_numbers_with_whitespace(s)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/string_processing.py", line 26, in replace_non_letters_non_numbers_with_whitespace
+    return cls.regex.sub(" ", a_string)
+TypeError: expected string or bytes-like object
+2018-12-02 11:40:12,428 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 11:40:14,431 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 11:40:21,141 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 88, in respond
+    return self._handleArgs(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 96, in _handleArgs
+    options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 115, in _matchChild
+    match, rate = process.extractOne(guess, self._valid_matches)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 220, in extractOne
+    return max(best_list, key=lambda i: i[1])
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 78, in extractWithoutOrder
+    processed_query = processor(query)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/utils.py", line 95, in full_process
+    string_out = StringProcessor.replace_non_letters_non_numbers_with_whitespace(s)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/string_processing.py", line 26, in replace_non_letters_non_numbers_with_whitespace
+    return cls.regex.sub(" ", a_string)
+TypeError: expected string or bytes-like object
+2018-12-02 11:41:23,908 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 11:41:25,911 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 11:41:35,479 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 88, in respond
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 100, in _handleArgs
+    if is_aliased:
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 90, in respond
+    guess, *user_args = user_args
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 145, in _handleNoArgs
+    class Root(UserFacingNode):
+AttributeError: 'list' object has no attribute 'format'
+2018-12-02 11:43:49,235 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 11:43:51,238 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 11:43:54,788 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 11:43:54,907 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 11:43:55,505 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518874681785319424 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fefb78ceb88>}]
+2018-12-02 11:44:05,818 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518874727108837376 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hi -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fefb78ceb88>}]
+2018-12-02 11:44:08,320 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 93, in __init__
+    self._output, self._behavior_output = response
+TypeError: cannot unpack non-iterable WrittenMSG object
+2018-12-02 11:51:36,399 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 11:51:38,402 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 11:51:44,658 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.respond()
+  File "client.py", line 97, in respond
+    channel = await self._getDMChannel(self._channel_key)
+TypeError: _getDMChannel() takes 1 positional argument but 2 were given
+2018-12-02 11:52:44,653 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 11:52:46,657 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 11:52:53,135 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 11:52:53,312 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 11:52:53,671 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518876935997358092 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f321161cb88>}]
+2018-12-02 11:52:57,045 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 11:52:57,442 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518876955819376660 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f321161cb88>}]
+2018-12-02 11:53:14,711 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518877028162732072 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hi -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f321161cb88>}]
+2018-12-02 11:53:21,250 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 93, in __init__
+    self._output, self._channel_key = response
+TypeError: cannot unpack non-iterable WrittenMSG object
+2018-12-02 11:58:44,318 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 11:58:46,320 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 11:58:49,075 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 93, in __init__
+    self._output, self._channel_key = response
+TypeError: cannot unpack non-iterable WrittenMSG object
+2018-12-02 12:00:15,010 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:00:17,013 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:00:19,846 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 135, in _send
+    for out in output:
+TypeError: 'WrittenMSG' object is not iterable
+2018-12-02 12:00:35,027 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 12:00:37,029 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:00:41,491 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 136, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not WrittenMSG
+2018-12-02 12:01:55,067 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:01:57,070 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:02:04,256 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 136, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not list
+2018-12-02 12:02:32,641 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:02:34,645 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:03:04,697 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 136, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not list
+2018-12-02 12:05:05,467 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 12:05:07,470 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:05:53,960 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:05:55,962 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:05:58,167 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 136, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not tuple
+2018-12-02 12:06:12,445 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 12:06:14,448 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:07:23,345 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:07:25,348 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:08:48,258 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 136, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not tuple
+2018-12-02 12:08:52,503 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 12:08:54,506 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:09:02,687 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 136, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not list
+2018-12-02 12:09:09,163 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:11:22,922 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:11:24,925 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:11:30,720 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not list
+2018-12-02 12:11:49,578 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:11:51,581 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:11:53,509 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not list
+2018-12-02 12:13:59,953 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 12:14:01,956 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:16:17,567 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 12:16:19,571 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:16:35,175 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518882852570398730 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d lulauthor: Grey#6475 output: [{'content': 'No approximate match found for **lul** in category **root**.\nClosest found is **Help**(match rate: **29**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 12:16:41,693 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518882921000730635 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox jabauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fe2af357b88>}, {'content': 'http://i.imgur.com/Swv4v4a.gif'}]
+2018-12-02 12:16:55,807 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 12:16:57,810 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 12:16:59,272 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518883003586445316 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d info -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f08a0e36dc8>}]
+2018-12-02 12:17:05,905 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=518883031122182144 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d fox dtiltauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f08a093d948>}, {'content': 'http://i.imgur.com/hYfTsfu.gif'}]
+2018-12-02 13:15:16,314 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 13:39:44,390 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 13:39:46,393 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 13:39:59,848 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 13:43:04,343 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 13:43:06,346 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 13:43:08,794 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 97, in query
+    channel = await self._getChannel(self._behaviors.send_dm)
+AttributeError: 'dict' object has no attribute 'send_dm'
+2018-12-02 13:46:15,715 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 13:46:17,718 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:39:10,545 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 14:39:12,548 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:39:17,868 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 102, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 90, in respond
+    return response, self._default_behaviours
+AttributeError: 'LongOutput' object has no attribute '_default_behaviours'
+2018-12-02 14:39:26,447 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 102, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 90, in respond
+    return response, self._default_behaviours
+AttributeError: 'LongOutput' object has no attribute '_default_behaviours'
+2018-12-02 14:50:17,658 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 14:50:19,660 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:50:26,171 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 101, in query
+    await self._send(channel, self._output)
+  File "client.py", line 139, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 14:51:01,185 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 14:54:18,386 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 101, in query
+    await self._send(channel, self._output)
+  File "client.py", line 139, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 14:54:18,389 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:54:18,903 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 14:54:20,906 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:55:48,371 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 14:55:50,373 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:56:25,584 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 134, in _send
+    if not output:
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 14:57:03,186 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 14:57:05,189 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:58:32,878 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 14:58:34,881 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 14:58:37,578 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 14:58:58,030 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 14:59:00,034 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:00:44,670 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 15:01:03,359 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 15:01:05,361 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:02:17,223 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 134, in _send
+    if not output:
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 15:02:17,953 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 15:02:19,956 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:03:02,142 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 15:03:04,144 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:03:06,695 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 15:03:20,701 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 15:03:22,110 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 15:03:22,703 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:03:27,610 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    await self._send(channel, self._output)
+  File "client.py", line 138, in _send
+    await channel.send(**out)
+AttributeError: 'NoneType' object has no attribute 'send'
+2018-12-02 15:04:37,619 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 15:04:39,620 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:08:07,458 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 15:08:09,460 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 15:08:10,773 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 15:08:10,965 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 22:00:42,686 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-02 22:00:44,688 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:00:49,966 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 90, in respond
+    return response, self._default_behaviours
+AttributeError: 'Root' object has no attribute '_default_behaviours'
+2018-12-02 22:03:39,228 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:03:41,231 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:03:51,313 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519030676482424832 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helloauthor: Grey#6475 output: [{'content': 'No approximate match found for **hello** in category **all**.\nClosest found is **Help**(match rate: **67**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:04:32,915 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 22:04:33,125 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 22:04:38,703 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519030869659222016 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f908a2ff9d8>}]
+2018-12-02 22:13:38,428 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:13:40,431 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:13:43,720 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 22:13:43,865 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 22:13:44,143 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033179512897539 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f456e6f1948>}]
+2018-12-02 22:13:49,121 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 102, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 83, in respond
+    response = self._handleNoArgs(msg_obj, options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 133, in _handleNoArgs
+    behaviours = self._checkBehaviors(options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 152, in _checkBehaviors
+    return Behaviours(send_dm=False, load=False)
+TypeError: __new__() got an unexpected keyword argument 'load'
+2018-12-02 22:14:19,382 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:14:21,384 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:14:27,813 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033364230045736 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d info -nodmauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f776008a948>}]
+2018-12-02 22:14:49,132 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033453128319004 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d supauthor: Grey#6475 output: [{'content': 'No approximate match found for **sup** in category **all**.\nClosest found is **Help**(match rate: **29**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:15:20,686 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 77, in _handle
+    await handler.query()
+  File "client.py", line 100, in query
+    self._tree = userFacingTree.load()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 173, in load
+    root_node = json.loads(f.read())
+  File "/usr/lib64/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.7/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 63 column 21 (char 4669)
+2018-12-02 22:16:01,130 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033755260813322 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d supauthor: Grey#6475 output: [{'content': 'No approximate match found for **sup** in category **all**.\nClosest found is **Help**(match rate: **29**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:16:12,443 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033803050844170 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d dupauthor: Grey#6475 output: [{'content': 'No approximate match found for **sup** in category **all**.\nClosest found is **Help**(match rate: **29**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:16:15,198 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033814584918026 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d supauthor: Grey#6475 output: [{'content': 'No approximate match found for **sup** in category **all**.\nClosest found is **Help**(match rate: **29**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:16:25,072 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 22:16:25,224 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 22:16:25,456 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033856297533442 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f776008aca8>}]
+2018-12-02 22:16:28,105 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519033868758548490 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d supauthor: Grey#6475 output: [{'content': 'No approximate match found for **sup** in category **all**.\nClosest found is **Help**(match rate: **29**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:17:35,547 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:17:37,550 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:17:41,488 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 22:17:41,631 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 22:17:41,894 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519034177023246336 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d supauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f925fdfaca8>}]
+2018-12-02 22:18:20,161 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:18:22,164 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:18:24,978 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 22:18:25,115 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-02 22:18:25,371 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519034359542448139 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d supauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f39ea41fca8>}]
+2018-12-02 22:20:08,434 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:20:10,437 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:21:17,368 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519034829774389248 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'content': 'No approximate match found for **hi** in category **all**.\nClosest found is **Help**(match rate: **45**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:21:17,886 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-02 22:21:19,889 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-02 22:21:36,286 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519035143747272714 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'content': 'No approximate match found for **hi** in category **all**.\nClosest found is **Help**(match rate: **45**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-02 22:21:38,790 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-02 22:21:38,971 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-03 22:27:37,077 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-03 22:27:39,079 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:27:42,620 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options)
+TypeError: respond() takes 3 positional arguments but 4 were given
+2018-12-03 22:29:38,532 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-03 22:29:40,534 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:29:44,518 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 103, in _handleArgs
+    options)
+TypeError: _matchChild() takes 3 positional arguments but 4 were given
+2018-12-03 22:30:47,972 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-03 22:30:49,974 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:30:52,753 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 84, in respond
+    return self._package(response)
+AttributeError: 'UserFacingNode' object has no attribute '_package'
+2018-12-03 22:32:27,961 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-03 22:32:29,963 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:32:31,635 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519400296900853760 pinned=False author=<User id=120333014889660416 name='Grey' discriminator='6475' bot=False>>,command: $d foxauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f6d61416dc8>}, {'embed': <discord.embeds.Embed object at 0x7f6d61416f78>}]
+2018-12-03 22:32:36,244 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519400316022685716 pinned=False author=<User id=120333014889660416 name='Grey' discriminator='6475' bot=False>>,command: $d fox jab1author: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f6d60f5d318>}, {'content': 'http://i.imgur.com/Swv4v4a.gif'}]
+2018-12-03 22:32:38,713 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-03 22:32:38,970 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519400327628324864 pinned=False author=<User id=120333014889660416 name='Grey' discriminator='6475' bot=False>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f6d61416a68>}]
+2018-12-03 22:35:30,294 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-03 22:35:32,296 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:35:35,543 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=519401068787007488 pinned=False author=<User id=120333014889660416 name='Grey' discriminator='6475' bot=False>>,command: $d infoauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7f195556ce58>}]
+2018-12-03 22:36:51,449 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 68, in on_message_edit
+    await self._handle(after)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 167, in respond
+    target, suggestion = self._parseSuggestion
+TypeError: cannot unpack non-iterable method object
+2018-12-03 22:37:36,931 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-03 22:37:38,933 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:38:01,992 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 167, in respond
+    target, suggestion = self._parseSuggestion(user_args)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 177, in _parseSuggestion
+    raise ValueError('ur value is shit m8')
+ValueError: ur value is shit m8
+2018-12-03 22:38:29,594 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 68, in on_message_edit
+    await self._handle(after)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 171, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 101, in _handleArgs
+    guess)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 123, in _matchChild
+    match, rate = process.extractOne(guess, self._valid_matches)
+AttributeError: 'Suggest' object has no attribute '_valid_matches'
+2018-12-03 22:41:23,058 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-03 22:41:25,061 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-03 22:41:37,723 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 103, in _handleArgs
+    if rate < self.conf.min_match_percent:
+AttributeError: type object 'Suggest' has no attribute 'min_match_percent'
+2018-12-04 08:40:26,384 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-04 08:40:28,385 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-04 08:40:42,369 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 83, in respond
+    response = self._handleNoArgs(msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 187, in _handleNoArgs
+    self._queueSuggestion(suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 191, in _queueSuggestion
+    with open(self.conf.suggestion_que_loc, '+') as f:
+ValueError: Must have exactly one of create/read/write/append mode and at most one plus
+2018-12-04 08:44:59,208 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-04 08:45:01,213 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-04 08:45:08,900 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 225, in _run_event
+    await coro(*args, **kwargs)
+  File "client.py", line 56, in on_message
+    await self._handle(message)
+  File "client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 81, in respond
+    **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 107, in _handleArgs
+    return matched_child.respond(msg_obj, user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 174, in respond
+    suggestion=suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 83, in respond
+    response = self._handleNoArgs(msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 187, in _handleNoArgs
+    self._queueSuggestion(suggestion)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 191, in _queueSuggestion
+    with open(self.conf.suggestion_que_loc, 'w+r') as f:
+ValueError: must have exactly one of create/read/write/append mode
+2018-12-06 15:50:54,212 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-06 15:50:56,261 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-07 06:08:07,403 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-07 06:08:09,405 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-07 16:37:09,500 | INFO | framedata-bot.__main__ | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-07 16:37:11,503 | INFO | framedata-bot.__main__ | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-07 16:37:37,589 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=520760492738740234 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d hiauthor: Grey#6475 output: [{'content': 'No approximate match found for **hi** in category **all**.\nClosest found is **Help**(match rate: **45**).\nEnter **$fd help** for more information about this bot.\n'}]
+2018-12-07 16:37:47,235 | INFO | framedata-bot.__main__ | dm sent to Grey#6475
+2018-12-07 16:37:48,670 | INFO | framedata-bot.__main__ | new dm channel for Grey#6475
+2018-12-07 16:37:49,010 | INFO | framedata-bot.__main__ | Command Handled | msg_obj: <Message id=520760533935194117 pinned=False author=<Member id=120333014889660416 name='Grey' discriminator='6475' bot=False nick=None guild=<Guild id=465971449954304000 name='test-server' chunked=True>>>,command: $d helpauthor: Grey#6475 output: [{'embed': <discord.embeds.Embed object at 0x7fb7b20539d8>}]

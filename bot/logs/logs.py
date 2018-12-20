@@ -1,5 +1,3 @@
-import os
-
 import logging
 
 my_logger = logging.getLogger('framedata-bot')

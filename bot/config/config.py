@@ -2,9 +2,10 @@ import re
 import os
 
 from . import creds
-from definitions import ROOT_DIR, BOT_DIR, LOG_DIR, TREE_PATH
+from definitions import ROOT_DIR, LOG_DIR, TREE_PATH
 
 develop = True
+
 
 class ServiceAccount:
     creds = creds.service_account_creds
@@ -46,7 +47,7 @@ class Root(UserFacingNode):
     invite_link = "https://discordapp.com/oauth2/authorize?client_id=492378733399900169&scope=bot&permissions=67584"
 
 class Suggest(UserFacingNode):
-    suggestion_que_loc = os.path.join(BOT_DIR, 'suggestionQueue.json')
+    suggestion_que_loc = os.path.join(ROOT_DIR, 'suggestionQueue.json')
 
 class HelpResponse:
     contrib_list = ["sp99", "cfx"]

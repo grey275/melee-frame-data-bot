@@ -1,13 +1,14 @@
+from fuzzywuzzy import process
+
 import messages
 import logs
 
-from fuzzywuzzy import process
 
-logger = logs.my_logger.getChild(__name__)
+logger = logs.my_logger.getChild(__file__)
 
 
 class Interface:
-    class IBuildChildren:
+    class BuildChildren:
         def __init__(self, default_child_type, special_children: dict):
             self._default_child_type = default_child_type
             self._special_children = special_children
@@ -18,14 +19,14 @@ class Interface:
             """
             pass
 
-    class IHandleArgs:
+    class HandleArgs:
         def __init__(matchChild, valid_matches):
             pass
 
         def handleArgs(self):
             pass
 
-    class IHandleNoArgs:
+    class HandleNoArgs:
         def __init__(output, node_name, valid_matches):
             pass
 
@@ -34,7 +35,7 @@ class Interface:
 
         pass
 
-    class IMatchChild:
+    class MatchChild:
         def __init__(self, children, child_aliases, valid_matches):
             pass
 
@@ -42,7 +43,7 @@ class Interface:
             pass
         pass
 
-    class IAsyncBehaviour:
+    class AsyncBehaviour:
         async def execute():
             pass
 
@@ -58,10 +59,10 @@ class Basic:
 
         def buildChildren(self, node_children):
             """
-            Defines how children should be built based on this node's children.
+            Defines how children should be built based on this raw node's children.
             """
             children = dict()
-            for child_name, child_node in node_children:
+            for child_name, child_node in node_children.items():
                 if child_name in self._special_child_types:
                     strat = self._special_child_types[child_name]
                 else:
@@ -140,13 +141,17 @@ class Basic:
         """
         Defines the main flow of control for queries to a node.
         """
-        def __init__(self, handleArgs, handleNoArgs, packageBehaviour):
+        def __init__(self, handleArgs, handleNoArgs, packageAsyncBehaviour):
             self._handleArgs = handleArgs
             self._handleNoArgs = handleNoArgs
-            self._packageBehaviour = packageBehaviour
+            self._packageAsyncBehaviour = packageAsyncBehaviour
 
         def respond(self, user_args, **kwargs):
-            pass
+            if user_args:
+                response = self._handleArgs(user_args, **kwargs)
+            else:
+                response = self._handleNoArgs(**kwargs)
+            return self._packageAsyncBehaviour(response)
 
     class PackageAsyncBehaviour:
         def __init__(self, asyncBehaviour):

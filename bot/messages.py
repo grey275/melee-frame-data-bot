@@ -1,10 +1,12 @@
-import logging
+import sys
 import yaml
 
+sys.path.append('..')
 import config
+import logs
 
-logger = logging.getLogger(__name__)
-logger.propagate
+
+logger = logs.my_logger.getChild(__file__)
 
 
 class WrittenMSG:
@@ -25,8 +27,7 @@ class WrittenMSG:
         self._info = info
         assert msg is not None
         if info:
-            msg = self._format(msg)
-        return msg
+            self._msg = self._format(msg)
 
     def get(self):
         return self._msg

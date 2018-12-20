@@ -2,6 +2,7 @@ from fuzzywuzzy import process
 
 import messages
 import logs
+import config
 
 
 logger = logs.my_logger.getChild(__file__)
@@ -84,22 +85,20 @@ class Basic:
             return self._output
 
     class HandleArgs:
+        conf = config.HandleArgs
         def __init__(self, matchChild):
             self._matchChild = matchChild
 
-        def handleArgs(self, msg_obj, user_args, **kwargs):
+        def handleArgs(self, user_args, **kwargs):
             guess, *user_args = user_args
-            matched_child, match, rate, is_aliased = self.match(msg_obj, guess)
-            logger.debug(f'name: {self.name}, '
-                         f'guess: {guess, }, match: {match},')
+            (matched_child, match,
+             rate, is_aliased) = self._matchChild(guess)
             if rate < self.conf.min_match_percent:
                 error = self._buildNotFoundMSG(guess, self.name,
                                                match, rate, is_aliased)
                 return error
-            elif user_args:
-                return matched_child.handleArgs(user_args, **kwargs)
             else:
-                return matched_child.respond(**kwargs)
+                return matched_child.respond(user_args, **kwargs)
 
         def _buildNotFoundMSG(self, guess, category, match, rate, is_aliased):
             if is_aliased:
@@ -112,12 +111,13 @@ class Basic:
             return [msg.get()]
 
     class MatchChild:
-        def __init__(self, children, child_aliases, valid_matches):
+        def __init__(self, node_name, children, child_aliases, valid_matches):
+            self._node_name = node_name
             self._children = children
             self._child_aliases = child_aliases
             self._valid_matches = valid_matches
 
-        def match(self, msg_obj, guess):
+        def match(self, guess):
             """
             Searches for a child based on a guess supplied by the user.
             """
@@ -128,13 +128,16 @@ class Basic:
             else:
                 is_aliased = False
                 matched_child = self._children[match]
+            logger.debug(f'name: {self._node_name}, '
+                         f'guess: {guess, }, '
+                         f'match: {matched_child},')
             return matched_child, match, rate, is_aliased
 
     class AsyncBehaviour:
         def __init__(self):
             pass
 
-        def execute():
+        async def execute():
             pass
 
     class Respond:

@@ -1183,3 +1183,171 @@ Traceback (most recent call last):
   File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 191, in _queueSuggestion
     with open(self.conf.suggestion_que_loc, 'w+r') as f:
 ValueError: must have exactly one of create/read/write/append mode
+2018-12-19 20:14:24,440 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 92, in __init__
+    response = self._tree.respond(msg_obj, args, options=options)
+TypeError: respond() takes 2 positional arguments but 3 were given
+2018-12-19 20:17:29,003 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 151, in respond
+    response = self._handleArgs(user_args, **kwargs)
+TypeError: handleArgs() got multiple values for argument 'msg_obj'
+2018-12-19 20:19:17,096 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 152, in respond
+    response = self._handleArgs(user_args, **kwargs)
+TypeError: handleArgs() got multiple values for argument 'msg_obj'
+2018-12-19 20:22:04,965 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 152, in respond
+    response = self._handleArgs(user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 92, in handleArgs
+    matched_child, match, rate, is_aliased = self.match(guess, **kwargs)
+AttributeError: 'HandleArgs' object has no attribute 'match'
+2018-12-19 20:23:37,138 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 153, in respond
+    response = self._handleArgs(user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 94, in handleArgs
+    logger.debug(f'name: {self.name}, '
+AttributeError: 'HandleArgs' object has no attribute 'name'
+2018-12-19 20:28:44,321 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 157, in respond
+    else:
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 94, in handleArgs
+    logger.debug(f'name: {self.name}, '
+AttributeError: 'HandleArgs' object has no attribute 'name'
+2018-12-19 20:35:38,273 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 76, in _handle
+    handler = Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 93, in __init__
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 152, in respond
+    response = self._handleArgs(user_args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 94, in handleArgs
+    if rate < self.conf.min_match_percent:
+AttributeError: 'HandleArgs' object has no attribute 'conf'
+2018-12-19 20:42:10,701 | ERROR | framedata-bot.__main__ | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 56, in on_message
+    await self._handle(message)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 77, in _handle
+    await handler.query()
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 98, in query
+    channel = await self._getChannel(self._behaviors.send_dm)
+AttributeError: 'function' object has no attribute 'send_dm'
+2018-12-19 21:02:40,533 | ERROR | framedata-bot.client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await self._handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 74, in _handle
+    handler_inst = handler.Handler(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 28, in __init__
+    self._output, self._asyncBehaviour = response
+AttributeError: 'Handler' object has no attribute '_asyncBehaviour'
+2018-12-20 10:41:45,854 | ERROR | framedata-bot.client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 28, in handle
+    output, asyncBehaviour = _query(msg_obj)
+TypeError: cannot unpack non-iterable coroutine object
+2018-12-20 10:46:03,873 | ERROR | framedata-bot.client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 28, in handle
+    output, execAsyncBehaviour = await _query(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 37, in _query
+    response = _active_tree.respond(user_args, msg_obj=msg_obj,
+AttributeError: 'ActiveTree' object has no attribute 'respond'
+2018-12-20 10:52:08,521 | ERROR | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 30, in handle
+    await execAsyncBehaviour()
+TypeError: object NoneType can't be used in 'await' expression
+2018-12-20 11:08:56,782 | ERROR | framedata-bot.client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 30, in handle
+    await execAsyncBehaviour()
+TypeError: object NoneType can't be used in 'await' expression
+2018-12-20 11:20:29,877 | ERROR | framedata-bot.client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 31, in handle
+    await _send(output, msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 65, in _send
+    await channel.send(**out)
+AttributeError: 'Message' object has no attribute 'send'

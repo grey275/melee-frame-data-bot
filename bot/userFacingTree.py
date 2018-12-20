@@ -32,13 +32,13 @@ class UserFacingNode:
                          + [*child_aliases.keys()])
 
         # Functions
-        matchChild = strats.MatchChild(children, child_aliases,
-                                       valid_matches).match
+        matchChild = strats.MatchChild(self.name, children,
+                                       child_aliases, valid_matches).match
         handleArgs = strats.HandleArgs(matchChild).handleArgs
         handleNoArgs = strats.HandleNoArgs(output, self.name,
                                            valid_matches).handleNoArgs
-        asyncBehaviour = strats.AsyncBehaviour.execute
-        package = strats.PackageAsyncBehaviour(asyncBehaviour).package
+        execAsyncBehaviour = strats.AsyncBehaviour.execute
+        package = strats.PackageAsyncBehaviour(execAsyncBehaviour).package
 
         self.respond = strats.Respond(handleArgs, handleNoArgs,
                                       package).respond

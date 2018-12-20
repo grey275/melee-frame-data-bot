@@ -21,11 +21,11 @@ class Handler:
     command_prefix = Client.command_prefix
 
 
-class UserFacingNode:
+class HandleArgs:
     min_match_percent = 80
 
 
-class Root(UserFacingNode):
+class Root:
     sheet_url = "https://docs.google.com/spreadsheets/d/12dwtMFdi95l03npBFuWI0fK62V0QZ6xET3qJ4oVdGc0&edit#gid=1165995726"
 
     sheet_id = re.search("id\=", sheet_url).end()
@@ -46,7 +46,7 @@ class Root(UserFacingNode):
     contrib_list = ["sp99", "cfx"]
     invite_link = "https://discordapp.com/oauth2/authorize?client_id=492378733399900169&scope=bot&permissions=67584"
 
-class Suggest(UserFacingNode):
+class Suggest():
     suggestion_que_loc = os.path.join(ROOT_DIR, 'suggestionQueue.json')
 
 class HelpResponse:

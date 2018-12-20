@@ -9,6 +9,9 @@ conf = config.Handler
 
 
 class ActiveTree:
+    """
+    For loading and reloading the user facing tree.
+    """
     session = serviceAccount.createSession()
 
     def __init__(self):
@@ -26,6 +29,11 @@ _active_tree = ActiveTree()
 
 
 async def handle(msg_obj):
+    """
+    extracts information from the tree object, runs
+    an async method that the tree wants run, and sends
+    whatever output it got back to the user.
+    """
     output, execAsyncBehaviour = await _query(msg_obj)
     await execAsyncBehaviour()
     await _send(output, msg_obj.channel)
@@ -60,6 +68,9 @@ def _parse(content):
 
 
 async def _send(output, channel):
+    """
+    sends the given output to the specified channel
+    """
     logger.debug(f'sending {output}')
     for out in output:
         await channel.send(**out)

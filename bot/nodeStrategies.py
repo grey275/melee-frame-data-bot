@@ -1,3 +1,6 @@
+"""
+A set of strategies to be passed when instantiating UserFacingNode.
+"""
 from fuzzywuzzy import process
 
 import messages
@@ -9,6 +12,10 @@ logger = logs.my_logger.getChild(__file__)
 
 
 class Interface:
+    """
+    This interface isn't actually inherited anywhere;
+    it's here for documentation purposes.
+    """
     class BuildChildren:
         def __init__(self, default_child_type, special_children: dict):
             self._default_child_type = default_child_type
@@ -21,6 +28,9 @@ class Interface:
             pass
 
     class HandleArgs:
+        """
+        called when args are passed to a node's response method
+        """
         def __init__(matchChild, valid_matches):
             pass
 
@@ -28,6 +38,9 @@ class Interface:
             pass
 
     class HandleNoArgs:
+        """
+        Called when no args are passed to the node's response method
+        """
         def __init__(output, node_name, valid_matches):
             pass
 
@@ -37,19 +50,33 @@ class Interface:
         pass
 
     class MatchChild:
+        """
+        Used by HandleArgs to resolve attempts to find a child.
+        """
         def __init__(self, children, child_aliases, valid_matches):
             pass
 
         def match():
             pass
-        pass
 
     class AsyncBehaviour:
+        """
+        Contains an async method to be passed back to the handler
+        and added to the event loop, as well as potentially context
+        for its execution.
+        """
+        def __init__(self):
+            pass
+
         async def execute():
             pass
 
 
 class Basic:
+    """
+    The strategy for most of the nodes in the network.
+    No special behaviours.
+    """
 
     class BuildChildren:
 
@@ -86,6 +113,7 @@ class Basic:
 
     class HandleArgs:
         conf = config.HandleArgs
+
         def __init__(self, matchChild):
             self._matchChild = matchChild
 

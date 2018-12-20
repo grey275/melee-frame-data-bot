@@ -2,6 +2,7 @@
 A set of strategies to be passed when instantiating UserFacingNode.
 """
 from fuzzywuzzy import process
+import discord
 
 import messages
 import logs
@@ -11,47 +12,47 @@ import config
 logger = logs.my_logger.getChild(__file__)
 
 
-class Interface:
+class interface:
     """
-    This interface isn't actually inherited anywhere;
+    this interface isn't actually inherited anywhere;
     it's here for documentation purposes.
     """
-    class BuildChildren:
+    class Buildchildren:
         def __init__(self, default_child_type, special_children: dict):
             self._default_child_type = default_child_type
             self._special_children = special_children
 
-        def buildChildren(node_children):
+        def buildchildren(node_children):
             """
-            Defines how children should be built based on this node's children.
+            defines how children should be built based on this node's children.
             """
             pass
 
-    class HandleArgs:
+    class handleargs:
         """
         called when args are passed to a node's response method
         """
-        def __init__(matchChild, valid_matches):
+        def __init__(matchchild, valid_matches):
             pass
 
-        def handleArgs(self):
+        def handleargs(self):
             pass
 
-    class HandleNoArgs:
+    class handlenoargs:
         """
-        Called when no args are passed to the node's response method
+        called when no args are passed to the node's response method
         """
         def __init__(output, node_name, valid_matches):
             pass
 
-        def handleArgs(self):
+        def handleargs(self):
             pass
 
         pass
 
-    class MatchChild:
+    class matchchild:
         """
-        Used by HandleArgs to resolve attempts to find a child.
+        used by handleargs to resolve attempts to find a child.
         """
         def __init__(self, children, child_aliases, valid_matches):
             pass
@@ -59,9 +60,9 @@ class Interface:
         def match():
             pass
 
-    class AsyncBehaviour:
+    class asyncbehaviour:
         """
-        Contains an async method to be passed back to the handler
+        contains an async method to be passed back to the handler
         and added to the event loop, as well as potentially context
         for its execution.
         """
@@ -81,22 +82,30 @@ class Basic:
     class BuildChildren:
 
         def __init__(self, UserFacingNode):
-            self._default_child_type = Basic
-            self._special_child_types = dict()
             self._UserFacingNode = UserFacingNode
+            self._defineChildStrategies()
+
+        def _defineChildStrategies(self):
+            """
+            Defines how children should be built based on this
+            raw node's children.
+            """
+            self._special_child_strats = dict()
+            self._default_child_strats = Basic
 
         def buildChildren(self, node_children):
             """
-            Defines how children should be built based on this raw node's children.
-            """
+            names found in the self._special_child_strats attribute
+            will be given their special strategies, and other nodes
+            will be given the basic strategy"""
             children = dict()
             for child_name, child_node in node_children.items():
-                if child_name in self._special_child_types:
-                    strat = self._special_child_types[child_name]
+                if child_name in self._special_child_strats:
+                    strats = self._special_child_strats[child_name]
                 else:
-                    strat = self._default_child_type
+                    strats = self._default_child_strats
                 children[child_name] = self._UserFacingNode(child_name,
-                                                            child_node, strat)
+                                                            child_node, strats)
             return children
 
     class HandleNoArgs:
@@ -161,13 +170,6 @@ class Basic:
                          f'match: {matched_child},')
             return matched_child, match, rate, is_aliased
 
-    class AsyncBehaviour:
-        def __init__(self):
-            pass
-
-        async def execute():
-            pass
-
     class Respond:
         """
         Defines the main flow of control for queries to a node.
@@ -185,10 +187,10 @@ class Basic:
             return self._packageAsyncBehaviour(response)
 
     class PackageAsyncBehaviour:
-        def __init__(self, asyncBehaviour):
-            self._asyncBehaviour = asyncBehaviour
+        def __init__(self, AsyncBehaviour):
+            self._AsyncBehaviour = AsyncBehaviour
 
-        def package(self, response):
+        def package(self, response, **kwargs):
             """
             checks to see if a behaviour has already been included in the
             response and if not adds the behaviour passed to the instance
@@ -197,4 +199,57 @@ class Basic:
             if isinstance(response, tuple):
                 return response
             else:
-                return response, self._asyncBehaviour
+                execAsyncBehaviour = self._AsyncBehaviour(**kwargs)
+                return response, execAsyncBehaviour
+
+    class AsyncBehaviour:
+        def __init__(self, **kwargs):
+            pass
+
+        async def execute():
+            pass
+
+
+class DMInstead:
+    class AsyncBehaviour:
+        def __init__(self, msg_obj, **kwargs):
+            self._msg_obj = msg_obj
+
+        async def execute(msg_obj):
+            if msg_obj.author.dm_channel:
+                await self._send()
+
+    async def _send(self, output, channel):
+        """
+        sends the given output to the specified channel
+        """
+        logger.debug(f'sending {output}')
+        for out in output:
+            await channel.send(**out)
+
+class Root(Basic):
+    """
+    For the root node.
+    """
+    class BuildChildren(BuildChildren):
+        def _defineChildStrategies(self):
+            self._special_child_strats = {'suggest': Suggest}
+            self._default_child_strats = Basic
+
+    class AsyncBehaviour:
+        def __init__(self, output, msg_obj, **kwargs):
+            self._output = output
+            self._msg_obj = msg_obj
+
+        async def execute():
+            await _send(self._output, self._channel)
+
+        async def _send(output, channel):
+            logger.debug(f'sending {output}')
+            for out in output:
+                await channel.send(**out)
+
+
+
+
+class Suggest:

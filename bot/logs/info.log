@@ -1734,3 +1734,5 @@ Traceback (most recent call last):
 AttributeError: 'Message' object has no attribute 'send'
 2018-12-20 11:21:17,615 | INFO | framedata-bot.client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
 2018-12-20 11:21:19,618 | INFO | framedata-bot.client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-20 12:14:02,373 | INFO | framedata-bot.client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-20 12:14:04,377 | INFO | framedata-bot.client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107

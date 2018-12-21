@@ -30,22 +30,18 @@ _active_tree = ActiveTree()
 
 async def handle(msg_obj):
     """
-    extracts information from the tree object, runs
-    an async method that the tree wants run, and sends
-    whatever output it got back to the user.
     """
-    output, execAsyncBehaviour = await _query(msg_obj)
-    await execAsyncBehaviour()
-    await _send(output, msg_obj.channel)
+    execResponse = await _query(msg_obj)
+    await execResponse()
 
 
 async def _query(msg_obj):
     """ init should not be called directly. Instead use the
     query staticmethod"""
     user_args, options = _parse(msg_obj.content)
-    response = _active_tree.respond(user_args, msg_obj=msg_obj,
-                                    options=options)
-    return response
+    execResponse = _active_tree.respond(user_args, msg_obj=msg_obj,
+                                        options=options)
+    return execResponse
 
 
 def _parse(content):
@@ -65,12 +61,3 @@ def _parse(content):
         else:
             args.append(w)
     return args, options
-
-
-async def _send(output, channel):
-    """
-    sends the given output to the specified channel
-    """
-    logger.debug(f'sending {output}')
-    for out in output:
-        await channel.send(**out)

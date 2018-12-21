@@ -1736,3 +1736,58 @@ AttributeError: 'Message' object has no attribute 'send'
 2018-12-20 11:21:19,618 | INFO | framedata-bot.client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107
 2018-12-20 12:14:02,373 | INFO | framedata-bot.client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
 2018-12-20 12:14:04,377 | INFO | framedata-bot.client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-21 10:42:32,897 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-21 10:42:34,899 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-21 10:42:36,525 | ERROR | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 35, in handle
+    await execResponse()
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 129, in _execute
+    await self._send(self._output, self._channel)
+AttributeError: 'HandleNoArgs' object has no attribute '_channel'
+2018-12-21 10:51:54,079 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name=None chunked=False>] | Number of Guilds: 1
+2018-12-21 10:51:56,080 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-21 10:51:58,486 | ERROR | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 35, in handle
+    await execResponse()
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 138, in execResponse
+    await self._send(self._output, self._channel)
+AttributeError: 'Response' object has no attribute '_channel'
+2018-12-21 10:52:32,158 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-21 10:52:34,166 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107
+2018-12-21 10:52:34,657 | ERROR | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 34, in handle
+    execResponse = await _query(msg_obj)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 43, in _query
+    options=options)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 58, in respond
+    response = self._handleArgs(user_args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 161, in handleArgs
+    return matched_child.respond(user_args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 58, in respond
+    response = self._handleArgs(user_args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 161, in handleArgs
+    return matched_child.respond(user_args, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 60, in respond
+    response = self._handleNoArgs(**kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 117, in handleNoArgs
+    msg_obj, **kwargs)
+  File "/home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies.py", line 123, in __init__
+    self._channel = msg_obj.channel
+AttributeError: 'list' object has no attribute 'channel'
+2018-12-21 10:53:06,637 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Connected to Discord | Guilds:[<Guild id=465971449954304000 name='test-server' chunked=True>] | Number of Guilds: 1
+2018-12-21 10:53:08,640 | INFO | framedata-bot./home/pete/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Logged in as Melee-Framedata-Develop | id: 497103376979460107

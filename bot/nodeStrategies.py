@@ -12,67 +12,6 @@ import config
 logger = logs.my_logger.getChild(__file__)
 
 
-class interface:
-    """
-    this interface isn't actually inherited anywhere;
-    it's here for documentation purposes.
-    """
-    class Buildchildren:
-        def __init__(self, default_child_type, special_children: dict):
-            self._default_child_type = default_child_type
-            self._special_children = special_children
-
-        def buildchildren(node_children):
-            """
-            defines how children should be built based on this node's children.
-            """
-            pass
-
-    class handleargs:
-        """
-        called when args are passed to a node's response method
-        """
-        def __init__(matchchild, valid_matches):
-            pass
-
-        def handleargs(self):
-            pass
-
-    class handlenoargs:
-        """
-        called when no args are passed to the node's response method
-        """
-        def __init__(output, node_name, valid_matches):
-            pass
-
-        def handleargs(self):
-            pass
-
-        pass
-
-    class matchchild:
-        """
-        used by handleargs to resolve attempts to find a child.
-        """
-        def __init__(self, children, child_aliases, valid_matches):
-            pass
-
-        def match():
-            pass
-
-    class asyncbehaviour:
-        """
-        contains an async method to be passed back to the handler
-        and added to the event loop, as well as potentially context
-        for its execution.
-        """
-        def __init__(self):
-            pass
-
-        async def execute():
-            pass
-
-
 class Basic:
     """
     The strategy for most of the nodes in the network.
@@ -109,16 +48,39 @@ class Basic:
             return children
 
     class HandleNoArgs:
-        def __init__(self, output, node_name, valid_matches):
-            self._output = output
-            self._requires_arg = messages.WrittenMSG("RequiresArg",
-                                                     name=node_name,
-                                                     valid_args=valid_matches)
+        def __init__(self, raw_output):
+            self._raw_output = raw_output
 
-        def handleNoArgs(self, options, **kwargs):
-            if not self._output:
-                return self._requires_arg.get()
-            return self._output
+        def handleNoArgs(self, options, msg_obj, **kwargs):
+            response = Basic.Response(self._raw_output,
+                                      msg_obj, options, **kwargs)
+            return response.execResponse
+
+    class Response:
+        def __init__(self, raw_output, msg_obj, options, **kwargs):
+            self._output = self._buildOutput(raw_output)
+            self._channel = msg_obj.channel
+
+        def _buildOutput(self, raw_output):
+            output = raw_output
+            for i, out in enumerate(output):
+                if 'embed' in out:
+                    output[i]['embed'] = self._makeEmbed(**out['embed'])
+            return output
+
+        def _makeEmbed(self, fields, **embed_info):
+            embed = discord.Embed(**embed_info)
+            for f in fields:
+                embed.add_field(**f)
+            return embed
+
+        async def execResponse(self):
+            await self._send(self._output, self._channel)
+
+        async def _send(self, output, channel):
+            logger.debug(f'sending {output}')
+            for out in output:
+                await channel.send(**out)
 
     class HandleArgs:
         conf = config.HandleArgs
@@ -145,7 +107,7 @@ class Basic:
                                       category=category,
                                       closest_match=match,
                                       match_rate=rate)
-            return [msg.get()]
+            return msg.get()
 
     class MatchChild:
         def __init__(self, node_name, children, child_aliases, valid_matches):
@@ -170,86 +132,35 @@ class Basic:
                          f'match: {matched_child},')
             return matched_child, match, rate, is_aliased
 
-    class Respond:
-        """
-        Defines the main flow of control for queries to a node.
-        """
-        def __init__(self, handleArgs, handleNoArgs, packageAsyncBehaviour):
-            self._handleArgs = handleArgs
-            self._handleNoArgs = handleNoArgs
-            self._packageAsyncBehaviour = packageAsyncBehaviour
+# class DMInstead:
+#     class Response(Basic.Response):
+#         def __init__(self, output, msg_obj, **kwargs):
+#             super().__init__(output, msg_obj, **kwargs)
+#             self._notification = messages.WrittenMSG('DMNotify').get()
 
-        def respond(self, user_args, **kwargs):
-            if user_args:
-                response = self._handleArgs(user_args, **kwargs)
-            else:
-                response = self._handleNoArgs(**kwargs)
-            return self._packageAsyncBehaviour(response)
+#         async def execute(self):
+#             author = self._msg_obj.author.dm_channel
+#             if not author.dm_channel:
+#                 await author.create_dm()
+#             await self._send(self._output,
+#                              self._msg_obj.author.dm_channel)
+#             await self._send()(self._notification,
+#                                self._msg_obj.channel)
 
-    class PackageAsyncBehaviour:
-        def __init__(self, AsyncBehaviour):
-            self._AsyncBehaviour = AsyncBehaviour
-
-        def package(self, response, **kwargs):
-            """
-            checks to see if a behaviour has already been included in the
-            response and if not adds the behaviour passed to the instance
-            object's constructor
-            """
-            if isinstance(response, tuple):
-                return response
-            else:
-                execAsyncBehaviour = self._AsyncBehaviour(**kwargs)
-                return response, execAsyncBehaviour
-
-    class AsyncBehaviour:
-        def __init__(self, **kwargs):
-            pass
-
-        async def execute():
-            pass
-
-
-class DMInstead:
-    class AsyncBehaviour:
-        def __init__(self, msg_obj, **kwargs):
-            self._msg_obj = msg_obj
-
-        async def execute(msg_obj):
-            if msg_obj.author.dm_channel:
-                await self._send()
-
-    async def _send(self, output, channel):
-        """
-        sends the given output to the specified channel
-        """
-        logger.debug(f'sending {output}')
-        for out in output:
-            await channel.send(**out)
-
-class Root(Basic):
+class Root:
     """
     For the root node.
     """
-    class BuildChildren(BuildChildren):
+    class BuildChildren(Basic.BuildChildren):
         def _defineChildStrategies(self):
             self._special_child_strats = {'suggest': Suggest}
             self._default_child_strats = Basic
 
-    class AsyncBehaviour:
-        def __init__(self, output, msg_obj, **kwargs):
-            self._output = output
-            self._msg_obj = msg_obj
-
-        async def execute():
-            await _send(self._output, self._channel)
-
-        async def _send(output, channel):
-            logger.debug(f'sending {output}')
-            for out in output:
-                await channel.send(**out)
-
-
-
+    class HandleNoArgs():
+        pass
+            # self._requires_arg = messages.WrittenMSG("RequiresArg",
+            #                                          name=node_name,
+            #                                          valid_args=valid_matches)
 
 class Suggest:
+    pass

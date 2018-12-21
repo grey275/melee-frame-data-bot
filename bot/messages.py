@@ -30,7 +30,7 @@ class WrittenMSG:
             self._msg = self._format(msg)
 
     def get(self):
-        return self._msg
+        return [self._msg]
 
     def _format(self, msg):
         """

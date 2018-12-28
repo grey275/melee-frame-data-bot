@@ -1,7 +1,7 @@
-import config
-import serviceAccount
-import userFacingTree
-import logs
+from . import config
+from . import serviceAccount
+from . import userFacingTree
+from . import logs
 
 logger = logs.my_logger.getChild(__file__)
 
@@ -15,10 +15,10 @@ class ActiveTree:
     session = serviceAccount.createSession()
 
     def __init__(self):
-        self._tree = self.loadTree()
+        self._tree = self._loadTree()
         self.respond = self._tree.respond
 
-    def loadTree(self):
+    def _loadTree(self):
         return userFacingTree.load()
 
     def reload(self):

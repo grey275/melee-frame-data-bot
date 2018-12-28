@@ -3,9 +3,9 @@ import sys
 
 import discord
 
-import config
-import logs
-import handler
+from . import config
+from . import logs
+from . import handler
 
 
 logger = logs.my_logger.getChild(__file__)

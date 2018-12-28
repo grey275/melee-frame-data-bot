@@ -2,12 +2,12 @@ import json
 
 import discord
 
-import config
-import logs
+from . import config
+from . import logs
 
-import nodeStrategies
+from . import nodeStrategies
 
-logger = logs.my_logger.getChild(__file__)
+_logger = logs.my_logger.getChild(__file__)
 
 
 class UserFacingNode:
@@ -24,20 +24,26 @@ class UserFacingNode:
         a series of dependency injections, utilizing the
         methods passed in with strats"""
         # Values
-        self.name = name
         child_aliases = UserFacingNode._getChildAliases(node)
         buildChildren = strats.BuildChildren(UserFacingNode).buildChildren
-        children = buildChildren(node['children'])
-        valid_matches = ([*children.keys()]
-                         + [*child_aliases.keys()])
+        children = buildChildren(node)
+        child_names = [*children.keys()]
+        alias_names = [*child_aliases.keys()]
+        valid_matches = child_names + alias_names
 
         # Methods
-        matchChild = strats.MatchChild(self.name, children,
-                                       child_aliases, valid_matches).match
-        handleArgs = strats.HandleArgs(matchChild).handleArgs
-        handleNoArgs = strats.HandleNoArgs(node['output']).handleNoArgs
-
-        self.respond = self.Respond(handleArgs, handleNoArgs).respond
+        matchChild = strats.MatchChild(name, children, child_aliases,
+                                       valid_matches).match
+        handleArgs = strats.HandleArgs(
+            name, matchChild, strats.Response).handleArgs
+        handleNoArgs = strats.HandleNoArgs(
+            node['output'],
+            node_name=name,
+            child_names=child_names,
+            Response=strats.Response
+        ).handleNoArgs
+        self.name = name
+        self.respond = UserFacingNode.Respond(handleArgs, handleNoArgs).respond
 
     def _getChildAliases(node):
         aliases = dict()
@@ -47,24 +53,39 @@ class UserFacingNode:
 
     class Respond:
         """
-        Defines the main flow of control for queries to a node.
+        main control flow for control for queries to a node.
         """
         def __init__(self, handleArgs, handleNoArgs):
             self._handleArgs = handleArgs
             self._handleNoArgs = handleNoArgs
 
-        def respond(self, user_args, **kwargs):
+        def respond(self, user_args, msg_obj, **kwargs):
             if user_args:
-                response = self._handleArgs(user_args, **kwargs)
+                response = self._handleArgs(user_args, msg_obj, **kwargs)
             else:
-                response = self._handleNoArgs(**kwargs)
+                response = self._handleNoArgs(msg_obj, **kwargs)
             return response
 
 
 def load(tree_loc=config.TREE_PATH):
     with open(tree_loc, 'r') as f:
         root_node = json.loads(f.read())
-    return UserFacingNode("Root", root_node, nodeStrategies.Basic)
+    return UserFacingNode("Root", root_node, nodeStrategies.Root)
+
+
+def findEmbeds(node, name):
+    if isinstance(node, dict):
+        for k, v in node.items():
+            findEmbeds(v, name)
+    elif isinstance(node, list):
+        for e in node:
+            findEmbeds(e, name)
+    elif isinstance(node, discord.Embed):
+        print(f'embed found in {name}')
+    elif isinstance(node, str):
+        print(f'str in {name}')
+    else:
+        raise ValueError(f'idk why this is here: {node}')
 
 
 if __name__ == '__main__':

@@ -1,9 +1,7 @@
-import sys
 import yaml
 
-sys.path.append('..')
-import config
-import logs
+from . import config
+from . import logs
 
 
 logger = logs.my_logger.getChild(__file__)
@@ -21,6 +19,7 @@ class WrittenMSG:
         return msg_dict
 
     _raw_msgs = _fetchRawMsgs(config.message_file)
+    names = _raw_msgs.keys()
 
     def __init__(self, key, **info):
         msg = self._raw_msgs[key]
@@ -28,6 +27,8 @@ class WrittenMSG:
         assert msg is not None
         if info:
             self._msg = self._format(msg)
+        else:
+            self._msg = msg
 
     def get(self):
         return [self._msg]

@@ -3,9 +3,9 @@ import json
 import gspread
 import discord
 
-import messages
-import config
-import logs
+from . import messages
+from . import config
+from . import logs
 
 
 logger = logs.my_logger.getChild(__name__)
@@ -47,7 +47,7 @@ class Root(Node):
                         contrib_list=self.conf.contrib_list),
             # ListResponse('Character Names', self.conf.char_names),
             WrittenNode('Invite', link=self.conf.invite_link),
-            WrittenNode('Info', send_dm_default=True)
+            WrittenNode('Info', send_dm_default=True),
         ]
         for char in self.conf.char_names:
             child = Character(char, get_worksheet(char))
@@ -66,9 +66,11 @@ class Root(Node):
         gc = gspread.Client(None, session)
         return gc.open_by_url(self.conf.sheet_url)
 
+
 class SuggestAlias(Node):
     def __init__(self):
         super().__init__('Suggest')
+
 
 class WrittenNode(Node):
     def __init__(self, key, send_dm_default=False, **info):

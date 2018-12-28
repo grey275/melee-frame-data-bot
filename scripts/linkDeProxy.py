@@ -6,8 +6,8 @@ import fuzzywuzzy
 
 from bs4 import BeautifulSoup
 
-import sheets
-import serviceAccount
+from .. import sheets
+from .. import serviceAccount
 
 
 

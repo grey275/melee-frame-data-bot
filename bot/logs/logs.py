@@ -10,7 +10,7 @@ error_handler.setLevel(logging.ERROR)
 error_handler.setFormatter(formatter)
 
 debug_handler = logging.StreamHandler()
-debug_handler.setLevel(logging.DEBUG)
+debug_handler.setLevel(logging.INFO)
 
 info_handler = logging.FileHandler('logs/info.log')
 info_handler.setLevel(logging.INFO)

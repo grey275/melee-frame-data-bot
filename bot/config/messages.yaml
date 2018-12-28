@@ -55,8 +55,6 @@ Info:
       value: |
         https://docs.google.com/spreadsheets/d/12dwtMFdi95l03npBFuWI0fK62V0QZ6xET3qJ4oVdGc0/edit#gid=1165995726
 
-
-
 MatchNotFound:
   content: |
     No approximate match found for **{guess}** in category **{category}**.
@@ -86,7 +84,9 @@ NoSuchOption:
 DMNotify:
   content: DMed! To display the message on this channel instead, include the option -nodm in the command.
 
+InvalidSuggestion:
+  content: "Invalid suggestion. Should be like 'Suggest' <path to command(eg: a character> command(eg: a move) = alias"
 
 SuggestionReceived:
   content: >-
-    Thanks for your alias suggestion! It has been sent to the FrameDataBot discord server for review. You will be notified if it's accepted!
+    Thanks for your alias suggestion!({path} = {suggestion}) It has been sent to the FrameDataBot discord server for review. You will be notified if it's accepted!

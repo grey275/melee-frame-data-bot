@@ -2248,3 +2248,144 @@ Traceback (most recent call last):
   File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 220, in extractOne
     return max(best_list, key=lambda i: i[1])
 RuntimeError: generator raised StopIteration
+2018-12-29 10:13:45,572 | ERROR | framedata-bot./home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 68, in extractWithoutOrder
+    raise StopIteration
+StopIteration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 34, in handle
+    execResponse = await _query(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 43, in _query
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 64, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 106, in handleArgs
+    return matched_child.respond(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 64, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 106, in handleArgs
+    return matched_child.respond(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 64, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 100, in handleArgs
+    rate, is_aliased) = self._matchChild(guess)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 130, in match
+    match, rate = process.extractOne(guess, self._valid_matches)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 220, in extractOne
+    return max(best_list, key=lambda i: i[1])
+RuntimeError: generator raised StopIteration
+2018-12-29 10:15:36,861 | ERROR | framedata-bot./home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 68, in extractWithoutOrder
+    raise StopIteration
+StopIteration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 34, in handle
+    execResponse = await _query(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 43, in _query
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 64, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 106, in handleArgs
+    return matched_child.respond(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 64, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 106, in handleArgs
+    return matched_child.respond(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 64, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 100, in handleArgs
+    rate, is_aliased) = self._matchChild(guess)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 130, in match
+    match, rate = process.extractOne(guess, self._valid_matches)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 220, in extractOne
+    return max(best_list, key=lambda i: i[1])
+RuntimeError: generator raised StopIteration
+2018-12-29 10:18:53,934 | ERROR | framedata-bot./home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 35, in handle
+    await execResponse()
+TypeError: '_Response' object is not callable
+2018-12-29 10:19:22,627 | ERROR | framedata-bot./home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 35, in handle
+    await execResponse()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 78, in execResponse
+    await self._send(self._output, self._channel)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 82, in _send
+    for out in output:
+TypeError: 'WrittenMSG' object is not iterable
+2018-12-29 10:23:34,461 | ERROR | framedata-bot./home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 68, in extractWithoutOrder
+    raise StopIteration
+StopIteration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 34, in handle
+    execResponse = await _query(msg_obj)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 43, in _query
+    options=options)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 65, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 107, in handleArgs
+    return matched_child.respond(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 65, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/suggestAlias.py", line 40, in handleArgs
+    path=path)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 65, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/suggestAlias.py", line 40, in handleArgs
+    path=path)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/userFacingTree.py", line 65, in respond
+    response = self._handleArgs(user_args, msg_obj, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/suggestAlias.py", line 30, in handleArgs
+    match = self._matchChild(guess)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 131, in match
+    match, rate = process.extractOne(guess, self._valid_matches)
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/fuzzywuzzy/process.py", line 220, in extractOne
+    return max(best_list, key=lambda i: i[1])
+RuntimeError: generator raised StopIteration
+2018-12-29 11:42:22,399 | ERROR | framedata-bot./home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py | Exception:
+Traceback (most recent call last):
+  File "/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/lib/python3.7/site-packages/discord/client.py", line 227, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/client.py", line 54, in on_message
+    await handler.handle(message)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/handler.py", line 35, in handle
+    await execResponse()
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 78, in execResponse
+    await self._send(self._output, self._channel)
+  File "/home/pete/Dropbox/Code/Discord-Bots/melee-frame-data-bot/bot/nodeStrategies/basic.py", line 83, in _send
+    await channel.send(**out)
+TypeError: send() argument after ** must be a mapping, not str

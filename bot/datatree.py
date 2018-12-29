@@ -3,6 +3,7 @@ import json
 import gspread
 import discord
 
+from . import serviceAccount
 from . import messages
 from . import config
 from . import logs
@@ -43,11 +44,11 @@ class Root(Node):
     def _build(self, session):
         get_worksheet = self._fetchAllWorksheets(session).worksheet
         child_list = [
-            WrittenNode('Help', send_dm_default=True,
-                        contrib_list=self.conf.contrib_list),
+            WrittenNode('Help', contrib_list=self.conf.contrib_list),
             # ListResponse('Character Names', self.conf.char_names),
             WrittenNode('Invite', link=self.conf.invite_link),
-            WrittenNode('Info', send_dm_default=True),
+            WrittenNode('Info'),
+            CharacterNames('charnames')
         ]
         for char in self.conf.char_names:
             child = Character(char, get_worksheet(char))
@@ -67,13 +68,22 @@ class Root(Node):
         return gc.open_by_url(self.conf.sheet_url)
 
 
+class CharacterNames(Node):
+    _char_names = config.CharacterNames.char_names
+
+    def __init__(self, name):
+        super().__init__(name)
+        out = self._formatOutputList(self._char_names)
+        self['output'] = [{'content': out}]
+
+
 class SuggestAlias(Node):
     def __init__(self):
         super().__init__('Suggest')
 
 
 class WrittenNode(Node):
-    def __init__(self, key, send_dm_default=False, **info):
+    def __init__(self, key, **info):
         super().__init__(key)
         msg = messages.WrittenMSG(key, **info).get()
         self['output'].append(msg)
@@ -130,7 +140,6 @@ class Worksheet(Node):
 
     def _getSectionCols(self,  section):
         return [list(col) for col in zip(*section)]
-
 
 
 class General(Worksheet):
@@ -272,9 +281,7 @@ class Move(Node):
         return struct
 
 
-if __name__ == "__main__":
-    import serviceAccount
+def build():
     data = Root(serviceAccount.createSession())
-
-    with open(config.TREE_LOC, 'w') as f:
-        f.write(json.dumps(data))
+    with open(config.TREE_PATH, 'w') as f:
+        f.write(json.dumps(data, sort_keys=True, indent=4))

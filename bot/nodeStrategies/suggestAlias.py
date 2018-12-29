@@ -19,6 +19,10 @@ class _BuildChildren(Basic.BuildChildren):
 class _HandleArgs(Basic.HandleArgs):
     def handleArgs(self, user_args, msg_obj, *,
                    suggestion=None, path=None, **kwargs):
+        if not self._has_children:
+            error = messages.WrittenMSG("NoArgTaken",
+                                        name=self._name).get()
+            return Basic.Response(error, msg_obj).execResponse
         if suggestion is None:
             try:
                 user_args, suggestion = self._parseSuggestion(user_args)

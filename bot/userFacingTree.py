@@ -27,6 +27,7 @@ class UserFacingNode:
         child_aliases = UserFacingNode._getChildAliases(node)
         buildChildren = strats.BuildChildren(UserFacingNode).buildChildren
         children = buildChildren(node)
+        has_children = bool(children)
         child_names = [*children.keys()]
         alias_names = [*child_aliases.keys()]
         valid_matches = child_names + alias_names
@@ -35,7 +36,7 @@ class UserFacingNode:
         matchChild = strats.MatchChild(name, children, child_aliases,
                                        valid_matches).match
         handleArgs = strats.HandleArgs(
-            name, matchChild, strats.Response).handleArgs
+            name, matchChild, has_children).handleArgs
         handleNoArgs = strats.HandleNoArgs(
             node['output'],
             node_name=name,

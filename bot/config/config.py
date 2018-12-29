@@ -45,6 +45,11 @@ class Root:
     contrib_list = ["sp99", "cfx"]
     invite_link = "https://discordapp.com/oauth2/authorize?client_id=492378733399900169&scope=bot&permissions=67584"
 
+
+class CharacterNames:
+    char_names = list(Root.char_names)
+
+
 class Suggest:
     class Response:
         suggestion_que_loc = os.path.join(ROOT_DIR, 'suggestionQueue.json')

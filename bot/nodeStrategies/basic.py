@@ -86,19 +86,23 @@ class _Response:
 class _HandleArgs:
     conf = config.HandleArgs
 
-    def __init__(self, name, matchChild, Response):
+    def __init__(self, name, matchChild, has_children):
         self._name = name
         self._matchChild = matchChild
-        self._Response = Response
+        self._has_children = has_children
 
     def handleArgs(self, user_args, msg_obj, **kwargs):
+        if not self._has_children:
+            error = messages.WrittenMSG("NoArgTaken",
+                                        name=self._name).get()
+            return Basic.Response(error, msg_obj).execResponse
         guess, *user_args = user_args
         (matched_child, match,
             rate, is_aliased) = self._matchChild(guess)
         if rate < self.conf.min_match_percent:
             error = self._buildNotFoundMSG(guess, self._name,
                                            match, rate, is_aliased)
-            return self._Response(error, msg_obj).execResponse
+            return Basic.Response(error, msg_obj).execResponse
         else:
             return matched_child.respond(user_args, msg_obj, **kwargs)
 

@@ -6,6 +6,7 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 
+
 class api:
     scope = "https://www.googleapis.com/auth/spreadsheets"
     store = file.Storage("token.json")
@@ -21,6 +22,7 @@ class api:
     sheet_id = conf.sheet_id
     sheet_names = sheets.sheet_names
     value_request = service.spreadsheets().values()
+
 
 def getDamage():
     ranges = ["{}!G4:G".format(sheet) for sheet in api.sheet_names]
@@ -61,13 +63,16 @@ def calculateShieldHitlag(damage_range):
 def formula(damage):
     return floor(float(damage) * 0.3333334 + 3)
 
+
 def singleHit(damage_str):
     return str(formula(damage_str))
+
 
 def singleHitDiff(damage_str):
     damage = re.findall("\d+", damage_str)
     s_hitlag = [str(formula(d)) for d in damage]
     return "".join(["{}/".format(s) for s in s_hitlag[:-1]] + [s_hitlag[-1]])
+
 
 def multiHitSame(damage_str):
     damage_sum, damage_per_hit, num_hits = re.findall("\d+", damage_str)
@@ -76,6 +81,7 @@ def multiHitSame(damage_str):
 
     s_hitlag_str = damage_str
     return "{} ({}*{})".format(s_hitlag_sum, s_hitlag_per_hit, num_hits)
+
 
 def multiHitDiff(damage_str):
     damage_vals = re.findall("\d+", damage_str)
@@ -95,6 +101,7 @@ def multiHitDiff(damage_str):
 
     return shield_hitlag_str
 
+
 def makeValueRanges(ranges):
     ranges = [[[v] for v in r] for r in ranges]
     value_ranges = []
@@ -104,6 +111,7 @@ def makeValueRanges(ranges):
                       "values": d}
         value_ranges.append(sheet_info)
     return value_ranges
+
 
 def writevalueRanges(value_ranges):
     request_body = {

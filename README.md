@@ -8,6 +8,6 @@ Any comments, criticism and feature suggestions are welcome!
 If you want to run your own instance of the bot, you'll have to add your own credentials.
 You need:
 - discord application token
-- Service account with access to a copy of the sheet used here.
+- Credentials for a Google Service Account with access to a copy of the sheet used here.
 
 If you have any trouble don't hesitate to contact me! I'm not expecting anyone to try to run the bot themselves so I haven't fully vetted the process from an outside user's perspective, but if you want to for whatever reason I'll be happy to help.

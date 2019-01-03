@@ -1,5 +1,5 @@
 # Description
-This is a bot for discord which displays frame data for the game Super Smash Bros. Melee. It reads information from a [spreadsheet][https://docs.google.com/spreadsheets/d/11i-YwUajgc6aWD8wSetYrb_bAM4RmL4FZi8XdBrMHo8], which is made accessible via easy to use fuzzy searched commands.
+This is a bot for discord which displays frame data for the game Super Smash Bros. Melee. It reads information from a [spreadsheet](https://docs.google.com/spreadsheets/d/11i-YwUajgc6aWD8wSetYrb_bAM4RmL4FZi8XdBrMHo8), which is made accessible via easy to use fuzzy searched commands.
 
 This project's main purpose was to be an exercise in Object Oriented programming for an application that doesn't have to maintain much state.
 Any comments, criticism and feature suggestions are welcome!

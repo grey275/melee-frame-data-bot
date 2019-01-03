@@ -1,3 +1,7 @@
+"""
+processes credentials to allow access to the
+google sheets api through gspread.
+"""
 from . import config
 from authlib.client import AssertionSession
 

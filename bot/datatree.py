@@ -1,3 +1,6 @@
+"""
+Builds a tree containing the static information which the client will access.
+"""
 import json
 
 import gspread
@@ -13,6 +16,11 @@ logger = logs.my_logger.getChild(__name__)
 
 
 class Node(dict):
+    """
+    Definition for a Node object. This class is
+    accessed a lot via super(), and I'm not sure
+    if this is a good choice.
+    """
     def __init__(self, name):
         self.name = name
         self['output'] = list()
@@ -42,33 +50,43 @@ class Root(Node):
         self["output"].append(messages.WrittenMSG('NoArgs').get())
 
     def _build(self, session):
-        get_worksheet = self._fetchAllWorksheets(session).worksheet
+        """
+        Returns children for this node.
+        """
+        # getWorksheet is a method.
+        getWorksheet = self._fetchAllWorksheets(session).worksheet
         child_list = [
             WrittenNode('Help', contrib_list=self.conf.contrib_list),
-            # ListResponse('Character Names', self.conf.char_names),
             WrittenNode('Invite', link=self.conf.invite_link),
             WrittenNode('Info'),
             CharacterNames('charnames')
         ]
         for char in self.conf.char_names:
-            child = Character(char, get_worksheet(char))
+            child = Character(char, getWorksheet(char))
             child_list.append(child)
 
         return {child.name: child for child in child_list}
 
-    def _buildCharacters(self, get_worksheet):
+    def _buildCharacters(self, getWorksheet):
         characters = dict()
         for char in self.conf.char_names:
             logger.debug('building {}'.format(char))
-            characters[char] = Character('char', get_worksheet(char))
+            characters[char] = Character('char', getWorksheet(char))
         return characters
 
     def _fetchAllWorksheets(self, session):
+        """
+        Returns a gspread sheets object.
+        """
         gc = gspread.Client(None, session)
         return gc.open_by_url(self.conf.sheet_url)
 
 
 class CharacterNames(Node):
+    """
+    Output contains a list of character names currently
+    in the tree.
+    """
     _char_names = config.CharacterNames.char_names
 
     def __init__(self, name):
@@ -77,12 +95,10 @@ class CharacterNames(Node):
         self['output'] = [{'content': out}]
 
 
-class SuggestAlias(Node):
-    def __init__(self):
-        super().__init__('Suggest')
-
-
 class WrittenNode(Node):
+    """
+    This node is to be used when all that is contained is
+    a message built by WrittenMSG."""
     def __init__(self, key, **info):
         super().__init__(key)
         msg = messages.WrittenMSG(key, **info).get()
@@ -92,13 +108,16 @@ class WrittenNode(Node):
 class Worksheet(Node):
     '''
     Base class for the data extracted from a sheet.
+    Contains some general utilities and creates an
+    attribute containing a nested list version of the
+    sheet.
     '''
 
     def __init__(self, name, worksheet):
         super().__init__(name)
 
+        # nested list representing the worksheet.
         self._all_values = worksheet.get_all_values()
-        # self.worksheet
 
     def _getRect(self, start_row, start_col, end_col=False):
         '''
@@ -117,6 +136,9 @@ class Worksheet(Node):
         return rect
 
     def _getRowSectLength(self, row, start):
+        """
+        Gets the length of a row from the 'start' index
+        to the first empty value"""
         for i in range(start, len(row)):
             if not row[i]:
                 break
@@ -127,6 +149,7 @@ class Worksheet(Node):
         Gets a section of the table.
         Starts at the top of the table, and adds each row
         consecutively until a row is found with missing elements.
+        TODO this method is depreciated; should use getRect instead.
         '''
         start_col, end_col = col_range
         section = list()
@@ -144,7 +167,9 @@ class Worksheet(Node):
 
 class General(Worksheet):
     '''
-    Universal Framedata
+    Universal Framedata. Unfortunately the universal framedata
+    worksheet contains inaccurate information, and as a
+    result is currently unused.
     '''
     def __init__(self, worksheet):
         super().__init__('General', worksheet)
@@ -184,7 +209,6 @@ class Character(Worksheet):
     Takes worksheet containing Character info and
     structures its data.
     '''
-
     def __init__(self, name, worksheet):
         super().__init__(name, worksheet)
 
@@ -195,6 +219,12 @@ class Character(Worksheet):
         del self._all_values
 
     def _buildMoves(self):
+        """
+        Returns a list of move objects. start_row and
+        start_col are currently hardcoded because currently
+        all of the sheets containing information about a
+        character are consistently templated.
+        """
         start_row = 2
         start_col = 1
         labels, *move_table = self._getRect(start_row, start_col)
@@ -218,6 +248,10 @@ class Character(Worksheet):
         return output
 
     def _buildStats(self):
+        """
+        Returns an dict contaning this character's stats,
+        structured so it'll work as an embed object.
+        """
         return self._structureStats(self._buildStatTable())
 
     def _buildStatTable(self):
@@ -225,6 +259,7 @@ class Character(Worksheet):
         start_col = self._worksheet.find('Jumpsquat Frames').col - 1
         end_col = start_col+2
         col_range = start_col, end_col
+        # TODO change to call getRect instead
         stat_table = self._getTableSection(start_row, col_range)
         return stat_table
 
@@ -265,6 +300,10 @@ class Character(Worksheet):
 
 
 class Move(Node):
+    """
+    Node for a particular move. Output is a dict which can be
+    made into an embed object.
+    """
     def __init__(self, name, character, labels, data):
         super().__init__(name)
         *data, url = data
@@ -282,6 +321,9 @@ class Move(Node):
 
 
 def build():
+    """
+    Builds the tree.
+    """
     data = Root(serviceAccount.createSession())
     with open(config.TREE_PATH, 'w') as f:
         f.write(json.dumps(data, sort_keys=True, indent=4))

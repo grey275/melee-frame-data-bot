@@ -4,12 +4,15 @@ from . import config
 from . import logs
 
 
-logger = logs.my_logger.getChild(__file__)
+_logger = logs.my_logger.getChild(__file__)
 
 
 class WrittenMSG:
     """
-    Handwritten messages for the user.
+    Handwritten messages for the user. TODO The
+    interface for this class is somewhat awkward. The
+    class generally Might be better implemented as a
+    function.
     """
     config = config.WrittenMSG
 
@@ -22,6 +25,10 @@ class WrittenMSG:
     names = _raw_msgs.keys()
 
     def __init__(self, key, **info):
+        """
+        Instantiation produces a message accessible
+        by the 'get' interface method.
+        """
         msg = self._raw_msgs[key]
         self._info = info
         assert msg is not None
@@ -31,12 +38,14 @@ class WrittenMSG:
             self._msg = msg
 
     def get(self):
+        """ interface"""
         return [self._msg]
 
     def _format(self, msg):
         """
         Calls format(self._info) on all strings with self._info
-        in potentially nested list, dict or str.
+        in potentially nested list, dict or str. Contains indirect
+        recursion and so is somewhat slow, but it'll work for now.
         """
         if isinstance(msg, str):
             return self._formatText(msg)
@@ -49,7 +58,7 @@ class WrittenMSG:
 
     def _formatDict(self, dct):
         """
-        Recursively applies format(**info) to all strings in a dict.
+        Applies format(**info) to all strings in a dict.
         Embed objects can be constructed from a dict.
         """
         for key, val in dct.items():
@@ -59,9 +68,6 @@ class WrittenMSG:
         return dct
 
     def _formatList(self, lst):
-        """
-        Formats all text in list.
-        """
         return [self._format(txt) for txt in lst]
 
     def _formatText(self, txt):

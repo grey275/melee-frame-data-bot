@@ -1,5 +1,4 @@
 import json
-
 import discord
 
 from .. import logs
@@ -12,11 +11,19 @@ logger = logs.my_logger.getChild(__file__)
 
 class _BuildChildren(Basic.BuildChildren):
     def _defineChildStrats(self):
+        """
+        The strategy of every child node of a SuggestAlias
+        node will itself be a SuggestAlias node.
+        """
         self._special_child_strats = dict()
         self._default_child_strats = SuggestAlias
 
 
 class _HandleArgs(Basic.HandleArgs):
+    """
+    Modifications include parsing a suggestion which is then
+    supplied as a keyword arg for child nodes.
+    """
     def handleArgs(self, user_args, msg_obj, *,
                    suggestion=None, path=None, **kwargs):
         if not self._has_children:
@@ -44,8 +51,13 @@ class _HandleArgs(Basic.HandleArgs):
                                          path=path)
 
     def _parseSuggestion(self, user_args):
+        """
+        Validates the user's args, and Separates out
+        the regular arguments from the suggestion
+        based on the '=' delimiter.
+        """
         checks = [user_args.count('=') == 1, user_args[0]
-                  is not '=', user_args[-1] is not '=']
+                  != '=', user_args[-1] != '=']
         if not all(checks):
             raise ValueError('ur value is shit m8')
         seperator = user_args.index('=')
@@ -55,6 +67,11 @@ class _HandleArgs(Basic.HandleArgs):
 
 
 class _HandleNoArgs(Basic.HandleNoArgs):
+    """
+    In this case, the output is dynamically determined
+    each query so most of the heavy lifting is done in
+    handleNoArgs.
+    """
     def __init__(self, raw_output, node_name, *,
                  child_names, **kwargs):
         self._args_required_msg = messages.WrittenMSG(
@@ -80,6 +97,11 @@ class _HandleNoArgs(Basic.HandleNoArgs):
 
 
 class _Response(Basic.Response):
+    """
+    The response behaviours for suggestions are
+    unique since they also have to append the suggestion
+    to a json file for further evaluation.
+    """
     _conf = config.Suggest.Response
 
     def __init__(self, output, msg_obj, *, suggestion, path):
@@ -93,8 +115,11 @@ class _Response(Basic.Response):
         await self._send(self._output, self._channel)
 
     async def _queueSuggestion(self, suggestion, path):
+        """
+        TODO I think I might be missing how best to info to
+        a json file.
+        """
         with open(self._conf.suggestion_que_loc, 'r+') as readQueue:
-            breakpoint()
             raw = readQueue.read()
             print(f'raw: {raw}')
             if not raw:

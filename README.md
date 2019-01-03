@@ -1,14 +1,13 @@
 # Description
-This is a bot for discord which can display melee frame data. It reads information from a [spreadsheet][https://docs.google.com/spreadsheets/d/11i-YwUajgc6aWD8wSetYrb_bAM4RmL4FZi8XdBrMHo8], and displays information based on simple fuzzy-searched commands.
+This is a bot for discord which displays frame data for the game Super Smash Bros. Melee. It reads information from a [spreadsheet][https://docs.google.com/spreadsheets/d/11i-YwUajgc6aWD8wSetYrb_bAM4RmL4FZi8XdBrMHo8], which is made accessible via easy to use fuzzy searched commands.
 
+This project's main purpose was to be an exercise in Object Oriented programming for an application that doesn't have to maintain much state.
 Any comments, criticism and feature suggestions are welcome!
-*As of writing this I am still fairly unfamiliar with git and gitlab in general, so I'll apologize in advance for any missteps in this area.*
 
 # Running this bot yourself
-If you want to make your own instance of the bot, you'll have to add your own credentials.
+If you want to run your own instance of the bot, you'll have to add your own credentials.
 You need:
-- python application token
-- google sheets api key(I don't think these are actually intended to be private but I'm being extra cautious for the time being)
-And, if you want to use the included script for adding additional shield hitlag info,
-- 2auth key for your google account
-You'll also have to copy the spreadsheet of course.
+- discord application token
+- Service account with access to a copy of the sheet used here.
+
+If you have any trouble don't hesitate to contact me! I'm not expecting anyone to try to run the bot themselves so I haven't fully vetted the process from an outside user's perspective, but if you want to for whatever reason I'll be happy to help.

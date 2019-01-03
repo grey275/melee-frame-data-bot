@@ -1,3 +1,6 @@
+"""
+Handles commands sent by the user and executes the appropriate response.
+"""
 from . import config
 from . import serviceAccount
 from . import userFacingTree
@@ -11,6 +14,9 @@ conf = config.Handler
 class ActiveTree:
     """
     For loading and reloading the user facing tree.
+    This is currently the only object in the program
+    which has directly modifiable state. The rest is
+    IO operations.
     """
     session = serviceAccount.createSession()
 
@@ -30,14 +36,15 @@ _active_tree = ActiveTree()
 
 async def handle(msg_obj):
     """
+    Entry point for the main function of this module.
     """
     execResponse = await _query(msg_obj)
     await execResponse()
 
 
 async def _query(msg_obj):
-    """ init should not be called directly. Instead use the
-    query staticmethod"""
+    """
+    note: perhaps this shouldn't be separate from handle."""
     user_args, options = _parse(msg_obj.content)
     execResponse = _active_tree.respond(user_args, msg_obj=msg_obj,
                                         options=options)
@@ -46,11 +53,10 @@ async def _query(msg_obj):
 
 def _parse(content):
     """
-    Parses command string into arguments to search through
-    the datastructure with, and options (words prefixed with a -)
-    to pass to the response that's returned. The
-    command prefix as well as the leading dash on options
-    are dropped.
+    Parses command string into arguments which are used to search
+    through the datastructure and options (words prefixed with a -)
+    to pass to the response that's returned. The command prefix
+    as well as the dash(-) delimiter on options are dropped.
     """
     words = content[len(conf.command_prefix):].split()
     args = []

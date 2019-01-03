@@ -1,3 +1,6 @@
+"""
+Entry point. Run this module from '../run'.
+"""
 import traceback
 import sys
 
@@ -13,11 +16,16 @@ logger = logs.my_logger.getChild(__file__)
 
 class Client(discord.Client):
     """
-    Client which finds and parses user commands
+    Client which finds and handles user commands via
+    the handler module.
     """
     conf = config.Client
 
     def __init__(self):
+        """
+        Passes in the activity message from config, which just
+        explains how to call the help message for more info.
+        """
         game_msg = discord.Game(name=self.conf.activity_msg)
         super().__init__(activity=game_msg)
 
@@ -25,13 +33,15 @@ class Client(discord.Client):
         super().run(self.conf.token)
 
     async def on_ready(self):
+        """
+        For logging purposes only.
+        """
         logger.info(f"Logged in as {self.user.name} "
                     f"| id: {self.user.id}")
 
     async def on_connect(self):
         """
-        redefinition of the on_connect() event object
-        method that reloads the cache
+        For logging purposes only.
         """
         num_guilds = len(self.guilds)
         logger.info('Connected to Discord '
@@ -39,6 +49,9 @@ class Client(discord.Client):
                     f"| Number of Guilds: {num_guilds}")
 
     async def on_guild_join(self, guild):
+        """
+        For logging purposes only.
+        """
         num_guilds = len(self.guilds)
         logger.info(f'Joined guild {self.guild} '
                     f'| Number of guilds: {num_guilds}')
@@ -66,15 +79,19 @@ class Client(discord.Client):
         await handler.handle(after)
 
     def _isCommand(self, message):
+        """
+        Initial validation. Further validation is done by the handler
+        and in the sequence of UserFacingNode objects which will
+        process this command.
+        """
         checks = (message.content.startswith(self.conf.command_prefix),
                   message.author != self.user)
         return all(checks)
 
     async def on_error(self, event_method, *args, **kwargs):
-        print('Ignoring exception in {}'.format(event_method), file=sys.stderr)
+        """
+        For logging purposes only
+        """
+        logger.debug('Ignoring exception in {}'.format(event_method), file=sys.stderr)
         traceback.print_exc()
         logger.exception("Exception:")
-
-
-if __name__ == '__main__':
-    Client().run()

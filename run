@@ -1,4 +1,5 @@
 #!/home/pete/.local/share/virtualenvs/melee-frame-data-bot-xbFLIMrz/bin/python
 
 from bot.client import Client
+
 Client().run()
